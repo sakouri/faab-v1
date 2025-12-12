@@ -1,0 +1,1024 @@
+/* Style général */
+:root {
+    --primary-color: #e8b1aa; /* RVB: 232, 177, 170 */
+    --text-color: #333;
+    --bg-color: #fff;
+    --accent-color: #e8b1aa;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #999;
+    --header-h: 88px;
+    --footer-h: 64px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400; /* thicker for print/readability */
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 14px; /* légèrement réduit pour que tout rentre */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* Ensure printed pages use slightly heavier weight for better legibility */
+@media print {
+    body, h1, h2, h3, h4, h5, h6 {
+        font-weight: 400 !important;
+        color: #000;
+    }
+}
+
+h1 {
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.accent {
+    color: var(--primary-color);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: none; /* removed grey delimitation between header and main */
+}
+
+header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+
+.logo a span {
+    color: var(--primary-color);
+}
+
+.logo svg {
+    margin-right: 0.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0.8rem 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    position: relative;
+    padding: 0.35rem 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Main content - SCROLLABLE FOR HOME PAGE */
+main {
+    padding-top: 88px;
+    min-height: calc(100vh - var(--header-h));
+    overflow-y: visible;
+    overflow-x: hidden;
+    padding-bottom: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    height: calc(100vh - var(--header-h));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    padding-top: 8vh;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.faab-letters {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    animation: fadeScroll 2s ease-in-out infinite;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeScroll {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+}
+
+.scroll-indicator svg {
+    color: var(--primary-color);
+}
+
+.bottom-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Content Sections */
+.content-section {
+    padding: 3rem 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vision-page {
+    padding-top: 4rem;
+}
+
+.vision-content-box {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.content-section:last-of-type {
+    padding-bottom: 10rem;
+}
+
+.hero-section {
+    padding: 0;
+    padding-top: var(--header-h);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    min-height: calc(100vh - var(--header-h));
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.hero-left {
+    height: auto;
+    overflow: visible;
+    border-radius: 8px;
+    margin-left: 8rem;
+}
+
+.hero-left img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content-section p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-content p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.vision-block p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Team Profiles */
+.team-profile {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    align-items: start;
+}
+
+.profile-image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.profile-image img,
+.profile-image svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Agency Section */
+.agency-section {
+    background-color: var(--bg-color);
+}
+
+.agency-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.agency-content h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.agency-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.agency-content .footnote {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+.profile-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-role {
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem !important;
+}
+
+.profile-subtitle {
+    font-style: italic;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem !important;
+}
+
+/* Vision Blocks */
+.vision-intro {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.vision-block {
+    margin-bottom: 3rem;
+}
+
+.vision-block h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.vision-block p {
+    text-align: justify;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 5%;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: var(--dark-gray);
+}
+
+/* About section - compact non-scrollable */
+.about {
+    padding: 1.5rem 8% 0.5rem;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.about > p {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.team-member {
+    flex: 1;
+    max-width: 300px;
+}
+
+.team-member h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.team-member p {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin-bottom: 0;
+}
+
+.photo-placeholder {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.photo-placeholder svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Photo captions removed per user request (no hover text) */
+
+/* Vision page */
+.vision-content {
+    padding: 2rem 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+
+.vision-item {
+    padding: 1rem 0.8rem;
+    background-color: transparent; /* removed gray frames */
+    transition: transform 0.25s ease;
+}
+
+.vision-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Reduce typography size inside vision for a more compact feel */
+.vision-content h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.vision-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+/* Réalisations page */
+.construction {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.construction-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: var(--bg-color); /* white instead of gray for 'page en construction' */
+}
+
+.construction-content svg {
+    margin-bottom: 2rem;
+}
+
+/* Contact page */
+.contact-content {
+    padding: 3rem 10%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+/* Contact box adjustments: remove grey background and place a bit lower */
+.contact-box {
+    background: transparent;
+    padding: 1rem;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 2.5rem;
+}
+
+.contact-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.contact-form {
+    background-color: var(--light-gray);
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--medium-gray);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e58e8e;
+}
+
+/* Phone section - bbblanche style */
+.phone-section {
+    position: fixed;
+    bottom: var(--footer-h);
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--bg-color);
+    z-index: 900;
+}
+
+.phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.phone-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.phone-number {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.phone-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Footer - with phone number like bbblanche */
+footer {
+    background-color: var(--bg-color);
+    position: relative;
+    left: 0;
+    right: 0;
+    height: var(--footer-h);
+    padding: 0.8rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-phone {
+    margin-bottom: 0.2rem;
+}
+
+.phone-link-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.phone-link-small:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.phone-icon-small {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.phone-number-small {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+/* Very small centered footer like reference */
+.footer-small {
+    font-size: 11px;
+    color: var(--dark-gray);
+    letter-spacing: 0.4px;
+}
+
+.footer-small .footer-line {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-small a {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.footer-small a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.footer-links-inline {
+    margin-left: 0.3rem;
+    font-size: 11px;
+}
+
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.footer-logo svg {
+    margin-right: 0.5rem;
+}
+
+.footer-links {
+    display: none; /* removed navigation links from footer for a simpler look */
+}
+
+.footer-links a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.3rem 0;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-contact {
+    display: none; /* hide contact details to keep footer minimal like the reference */
+}
+
+.footer-contact p {
+    margin: 0;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 0;
+    border-top: none;
+    font-size: 0.75rem;
+    color: var(--dark-gray);
+}
+
+/* Make footer links subtle */
+.copyright {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+}
+
+/* --- Styles pour le téléphone flottant (CORRIGÉ) --- */
+.fixed-contact-phone {
+    position: fixed;
+    /* La hauteur du footer est 64px, on ajoute 20px de marge */
+    bottom: 84px; 
+    right: 30px; 
+    z-index: 1000;
+}
+
+.fixed-contact-phone a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--medium-gray);
+    border-radius: 40px; 
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 400; /* Garde la police par défaut */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.fixed-contact-phone a svg {
+    margin-right: 8px;
+}
+
+/* Effet au survol (hover effect) */
+.fixed-contact-phone a:hover {
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
+    
+    .team {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .team-member {
+        max-width: 100%;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        padding: 1rem 5%;
+    }
+    
+    .contact-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .vision-content {
+        grid-template-columns: 1fr;
+        padding: 1rem 5%;
+    }
+    
+    .about, .vision-content, section[style*="padding"] {
+        padding: 2rem 5% !important;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    nav.active {
+        max-height: 300px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+    
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+    }
+    
+    /* Mobile: Masquer le numéro de téléphone et le rapprocher du bas */
+    .fixed-contact-phone {
+        bottom: 20px; 
+    }
+    .fixed-contact-phone a {
+        padding: 0.7rem;
+    }
+    .fixed-contact-phone a span {
+        display: none;
+    }
+    .fixed-contact-phone a svg {
+        margin-right: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+/* Splash screen styles - fade-up effect like defivesvivaldi */
+.splash {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    z-index: 20000;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.splash-logo {
+    position: relative;
+}
+
+.splash-logo img {
+    max-width: 300px;
+    width: 80vw;
+    height: auto;
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fade-up 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.splash.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Scroll animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delays for consecutive elements */
+.fade-in-up:nth-child(1) { transition-delay: 0s; }
+.fade-in-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-in-up:nth-child(4) { transition-delay: 0.3s; }
+.fade-in-up:nth-child(5) { transition-delay: 0.4s; }
+.fade-in-up:nth-child(6) { transition-delay: 0.5s; }
+
