@@ -105,6 +105,10 @@
 }
 
 @media (max-width: 600px) {
+    /* Justifie à gauche le texte des présentations des associés sur mobile */
+    .team-profile .profile-content p {
+        text-align: left !important;
+    }
     /* HERO - mobile : photo plus petite, bien sous le header, sans bordure blanche ni arrondi haut */
     .hero-section {
         padding-top: 60px !important;
