@@ -105,6 +105,11 @@
 }
 
 @media (max-width: 600px) {
+    /* Sous-titres sous les noms associés centrés sur mobile */
+    .team-profile .profile-content .profile-role,
+    .team-profile .profile-content .profile-subtitle {
+        text-align: center !important;
+    }
     /* Justifie à gauche le texte des présentations des associés sur mobile */
     .team-profile .profile-content p {
         text-align: left !important;
