@@ -22,6 +22,11 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        border-radius: 16px 16px 8px 8px;
+        background: transparent;
+    }
+    .hero-section {
+        background: transparent !important;
     }
     .contact-intro p {
         text-align: left;
