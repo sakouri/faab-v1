@@ -107,9 +107,48 @@
         padding-top: 0.5rem;
         gap: 0.7rem;
     }
-    /* Décale la photo d'accueil plus bas sur mobile */
+    /* HEADER et LOGO plus compacts sur mobile */
+    header {
+        min-height: 48px;
+        height: 48px;
+        padding: 0;
+    }
+    .header-content {
+        min-height: 48px;
+        height: 48px;
+        padding: 0;
+    }
+    .logo img {
+        width: 40px !important;
+        height: 40px !important;
+        max-width: 40px !important;
+        max-height: 40px !important;
+    }
+    .logo {
+        padding: 0.2rem 0;
+    }
+    /* Réduit l'espace du bloc blanc du header */
+    .hero-section {
+        padding-top: 48px !important;
+        min-height: calc(100vh - 48px);
+    }
+    /* Décale la photo d'accueil plus bas sur mobile, et évite qu'elle soit coupée */
     .hero-left {
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .hero-left img {
+        margin-top: 0.5rem;
+        max-width: 90vw;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .hero-container {
+        padding-top: 0.5rem;
     }
 }
 /* Style général */
