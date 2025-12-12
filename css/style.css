@@ -105,10 +105,10 @@
 }
 
 @media (max-width: 600px) {
-    /* Sous-titres sous les noms associés centrés sur mobile */
+    /* Sous-titres sous les noms associés alignés à gauche sur mobile */
     .team-profile .profile-content .profile-role,
     .team-profile .profile-content .profile-subtitle {
-        text-align: center !important;
+        text-align: left !important;
     }
     /* Justifie à gauche le texte des présentations des associés sur mobile */
     .team-profile .profile-content p {
@@ -201,6 +201,9 @@
     }
     .hero-container {
         padding-top: 0.5rem;
+         max-width: 750px;
+         margin-left: auto;
+         margin-right: auto;
     }
 }
 /* Style général */
@@ -566,21 +569,20 @@ main {
     margin: 0 auto;
 }
 
-.agency-content h3 {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     color: var(--text-color);
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: left;
 }
 
-.agency-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.agency-content .footnote {
-    font-size: 0.9rem;
-    color: var(--dark-gray);
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: left;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
     font-style: italic;
     margin-top: 2rem;
 }
