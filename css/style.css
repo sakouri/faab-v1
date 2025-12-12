@@ -14,22 +14,33 @@
 }
 
 @media (max-width: 900px) {
+    .hero-section {
+        padding-top: 60px !important;
+    }
+    .hero-left {
+        margin-top: 0 !important;
+    }
     .hero-left img {
-        padding-top: 6.5rem;
-        max-width: 40vw;
+        max-width: 60vw !important;
         width: 100%;
         height: auto;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 0 0 16px 16px;
+        margin: 0 auto;
+        border-radius: 16px !important;
         background: transparent;
+        padding-top: 0 !important;
     }
-    .hero-section {
-        background: transparent !important;
+    .contact-box {
+        border-radius: 16px !important;
     }
-    .contact-intro p {
-        text-align: left;
+    .hero-title {
+        font-size: 1.2rem !important;
+    }
+    header {
+        background: rgba(255,255,255,0.7) !important;
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+    }
         margin-left: 0;
         margin-right: 0;
     }
