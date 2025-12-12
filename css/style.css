@@ -93,9 +93,22 @@
 }
 
 @media (max-width: 600px) {
-    /* Ajoute un espace au-dessus de la photo d'accueil pour qu'elle ne soit pas coupée */
+    /* HERO - mobile : photo plus petite, bien sous le header, sans bordure blanche ni arrondi haut */
+    .hero-section {
+        padding-top: 60px !important;
+    }
+    .hero-left {
+        margin-top: 0 !important;
+    }
     .hero-left img {
-        padding-top: 2.5rem;
+        max-width: 60vw !important;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 0 0 16px 16px !important;
+        background: transparent;
+        padding-top: 0 !important;
     }
     .contact-elegant {
         padding: 1rem 0.5rem;
