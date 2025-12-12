@@ -14,33 +14,33 @@
 }
 
 @media (max-width: 900px) {
-    .hero-section {
-        padding-top: 60px !important;
-    }
-    .hero-left {
-        margin-top: 0 !important;
-    }
     .hero-left img {
-        max-width: 60vw !important;
+        padding-top: 6.5rem;
+        max-width: 40vw;
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
-        border-radius: 16px !important;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0 0 16px 16px;
         background: transparent;
-        padding-top: 0 !important;
     }
-    .contact-box {
-        border-radius: 16px !important;
+        .hero-left img {
+            padding-top: 7.5rem;
+            max-width: 40vw;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 16px !important;
+            background: transparent;
+        }
+    .hero-section {
+        background: transparent !important;
     }
-    .hero-title {
-        font-size: 1.2rem !important;
-    }
-    header {
-        background: rgba(255,255,255,0.7) !important;
-        -webkit-backdrop-filter: blur(6px);
-        backdrop-filter: blur(6px);
-    }
+    .contact-intro p {
+        text-align: left;
         margin-left: 0;
         margin-right: 0;
     }
@@ -57,10 +57,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
-    border: 1px solid #333;
+    border: 1.5px solid #bbb;
     padding: 3rem;
-    border-radius: 8px;
+    border-radius: 20px !important;
     background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 .contact-intro p {
     font-size: 1.1rem;
@@ -126,8 +127,11 @@
     }
     .contact-box {
         padding: 1rem 0.5rem;
-        border-width: 1px;
+        border-width: 1.5px;
         gap: 1.2rem;
+        border-radius: 20px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        border-color: #bbb;
     }
     .contact-intro p {
         font-size: 1rem;
@@ -484,7 +488,7 @@ main {
     width: 100%;
     height: auto;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 16px !important;
 }
 
 .hero-right {
