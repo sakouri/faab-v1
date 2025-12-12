@@ -1,3 +1,109 @@
+
+.contact-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.contact-intro p {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    .contact-intro {
+        align-items: flex-start;
+    }
+    .contact-intro p {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+/* ----------- Contact Page Responsive ----------- */
+.contact-elegant {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 4%;
+}
+.contact-box {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    border: 1px solid #333;
+    padding: 3rem;
+    border-radius: 8px;
+    background: #fff;
+}
+.contact-intro p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.6;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 4rem;
+}
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.social-links {
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-left: 100px;
+}
+
+@media (max-width: 900px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+    .contact-details {
+        padding-top: 2rem;
+    }
+    .social-links {
+        padding-left: 0;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-elegant {
+        padding: 1rem 0.5rem;
+    }
+    .contact-box {
+        padding: 1rem 0.5rem;
+        border-width: 1px;
+        gap: 1.2rem;
+    }
+    .contact-intro p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .contact-details {
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    .contact-detail {
+        gap: 0.7rem;
+    }
+    .social-links {
+        padding-top: 0.5rem;
+        gap: 0.7rem;
+    }
+}
 /* Style général */
 :root {
     --primary-color: #e8b1aa; /* RVB: 232, 177, 170 */
