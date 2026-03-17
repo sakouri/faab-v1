@@ -273,19 +273,32 @@ document.addEventListener('DOMContentLoaded', function() {
             startAuto();
         }
 
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function () {
-                goTo(current - 1);
+        function bindCarouselControl(button, step) {
+            if (!button) return;
+            var lastPointerUpAt = 0;
+
+            function handleActivate(event) {
+                if (event.type === 'click' && Date.now() - lastPointerUpAt < 350) {
+                    return;
+                }
+                if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') {
+                    return;
+                }
+                if (event.type === 'pointerup') {
+                    lastPointerUpAt = Date.now();
+                }
+                event.preventDefault();
+                goTo(current + step);
                 resetTimer();
-            });
+            }
+
+            button.addEventListener('click', handleActivate);
+            button.addEventListener('pointerup', handleActivate);
+            button.addEventListener('keydown', handleActivate);
         }
 
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function () {
-                goTo(current + 1);
-                resetTimer();
-            });
-        }
+        bindCarouselControl(prevBtn, -1);
+        bindCarouselControl(nextBtn, 1);
 
         dots.forEach(function (dot) {
             dot.addEventListener('click', function () {
