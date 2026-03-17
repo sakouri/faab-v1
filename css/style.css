@@ -2199,3 +2199,95 @@ footer {
         line-height: 1.56 !important;
     }
 }
+
+/* Final mobile lock for Agence page: avoid hero crop, overlaps, and oversized text */
+@media (max-width: 900px) {
+    .hero-section.agence-layout-section {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 84px !important;
+    }
+
+    .hero-section.agence-layout-section .hero-container.agence-hero-container {
+        grid-template-columns: 1fr !important;
+        min-height: unset !important;
+        align-items: start !important;
+        gap: 1rem !important;
+        padding: 0.35rem 0.75rem 1.1rem !important;
+    }
+
+    .hero-section.agence-layout-section .hero-left,
+    .hero-section.agence-layout-section .hero-left.fade-in-up {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+    }
+
+    .hero-section.agence-layout-section .hero-left img {
+        width: min(92vw, 520px) !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        object-position: top center !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        display: block !important;
+    }
+
+    .hero-section.agence-layout-section .hero-right {
+        width: 100% !important;
+        padding: 0.1rem 0.4rem 0 !important;
+        display: block !important;
+    }
+
+    .hero-section.agence-layout-section .agence-long-text {
+        margin: 0 !important;
+        max-width: none !important;
+    }
+
+    .hero-section.agence-layout-section .agence-long-text p,
+    .agence-programmes-section .agence-programmes-flow p,
+    .agence-manifesto-section .agence-manifesto-kicker,
+    .agence-manifesto-section .agence-manifesto-body p,
+    .content-section .agence-theory-box p {
+        font-size: 0.92rem !important;
+        line-height: 1.52 !important;
+    }
+
+    .agence-manifesto-header {
+        grid-template-columns: 1fr !important;
+        gap: 0.55rem !important;
+    }
+
+    .agence-manifesto-header h2 {
+        text-align: left !important;
+        line-height: 1.14 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section.agence-layout-section {
+        padding-top: 76px !important;
+    }
+
+    .hero-section.agence-layout-section .hero-container.agence-hero-container {
+        padding: 0.25rem 0.45rem 0.95rem !important;
+    }
+
+    .hero-section.agence-layout-section .hero-left img {
+        width: min(95vw, 460px) !important;
+    }
+
+    .hero-section.agence-layout-section .agence-long-text p,
+    .agence-programmes-section .agence-programmes-flow p,
+    .agence-manifesto-section .agence-manifesto-kicker,
+    .agence-manifesto-section .agence-manifesto-body p,
+    .content-section .agence-theory-box p {
+        font-size: 0.89rem !important;
+        line-height: 1.5 !important;
+    }
+}
