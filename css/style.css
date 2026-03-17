@@ -2170,7 +2170,7 @@ footer {
     }
 }
 
-/* Mobile-only refinements: centered white burger + slightly smaller long texts */
+/* Mobile-only refinements: left white burger + slightly smaller long texts */
 @media (max-width: 768px) {
     .home-page header {
         position: fixed;
@@ -2178,9 +2178,9 @@ footer {
 
     .home-page header .menu-toggle {
         position: absolute;
-        left: 50%;
+        left: 0.9rem;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
         z-index: 1101;
         display: flex;
         align-items: center;
