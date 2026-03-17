@@ -2256,9 +2256,14 @@ footer {
         display: block !important;
         width: 100% !important;
         max-width: none !important;
-        padding-left: 0.7rem !important;
-        padding-right: 0.7rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         margin: 0 !important;
+    }
+
+    .agence-programmes-section {
+        padding-top: 1rem !important;
+        padding-bottom: 1.25rem !important;
     }
 
     .agence-programmes-flow,
@@ -2273,6 +2278,12 @@ footer {
         margin: 0 !important;
         float: none !important;
         clear: both !important;
+    }
+
+    .agence-programmes-flow,
+    .agence-programmes-text {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .agence-programmes-image img {
@@ -2296,6 +2307,9 @@ footer {
         line-height: 1.5 !important;
         margin-bottom: 0.95rem !important;
         text-align: left !important;
+        text-indent: 0 !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
     }
 
     .agence-manifesto-header h2 {
