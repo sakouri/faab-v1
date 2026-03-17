@@ -1,5 +1,60 @@
+// Effet surlignage progressif séquentiel sur deux portions du hero (corrigé)
+document.addEventListener('DOMContentLoaded', function() {
+    var h1 = document.getElementById('highlight-rose-1');
+    var h2 = document.getElementById('highlight-rose-2');
+    if (h1 && h2) {
+        h1.classList.remove('animate');
+        h2.classList.remove('animate');
+        void h1.offsetWidth; void h2.offsetWidth;
+        setTimeout(function() {
+            h1.classList.add('animate');
+            setTimeout(function() {
+                h2.classList.add('animate');
+            }, 1200);
+        }, 200);
+    }
+});
+// Effet surlignage progressif sur la phrase clé du hero
+document.addEventListener('DOMContentLoaded', function() {
+    var highlight = document.querySelector('.highlight-rose');
+    if (highlight) {
+        // Force le repaint pour garantir l'animation
+        highlight.classList.remove('animate');
+        void highlight.offsetWidth;
+        setTimeout(function() {
+            highlight.classList.add('animate');
+        }, 200);
+    }
+});
+// Ajoute l'effet de surlignage progressif sur la phrase clé du hero
+document.addEventListener('DOMContentLoaded', function() {
+    var highlight = document.querySelector('.highlight-rose');
+    if (highlight) {
+        setTimeout(function() {
+            highlight.classList.add('animate');
+        }, 350);
+    }
+});
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
+        // Menu latéral burger
+        const burger = document.querySelector('.burger-menu');
+        const sideMenu = document.getElementById('side-menu');
+
+        if (burger && sideMenu) {
+            burger.addEventListener('click', function() {
+                const isOpen = sideMenu.classList.contains('open');
+                if (isOpen) {
+                    sideMenu.classList.remove('open');
+                    sideMenu.setAttribute('aria-hidden', 'true');
+                    burger.classList.remove('open');
+                } else {
+                    sideMenu.classList.add('open');
+                    sideMenu.setAttribute('aria-hidden', 'false');
+                    burger.classList.add('open');
+                }
+            });
+        }
     // Splash screen handling - fade-up effect then fades out
     const splash = document.getElementById('splash');
     if (splash) {
@@ -124,3 +179,122 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// Effet surlignage progressif séquentiel sur deux portions du hero
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var h1 = document.getElementById('highlight-rose-1');
+    var h2 = document.getElementById('highlight-rose-2');
+    if (h1 && h2) {
+      h1.classList.remove('animate');
+      h2.classList.remove('animate');
+      void h1.offsetWidth; void h2.offsetWidth;
+      setTimeout(function() {
+        h1.classList.add('animate');
+        setTimeout(function() {
+          h2.classList.add('animate');
+        }, 1200);
+      }, 200);
+    }
+  });
+})();
+
+// ====== Carrousel hero (accueil) ======
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        var slides = document.querySelectorAll('.carousel-slide');
+        var dots   = document.querySelectorAll('.carousel-dot');
+        var prevBtn = document.querySelector('.carousel-prev');
+        var nextBtn = document.querySelector('.carousel-next');
+        if (!slides.length) return;
+
+        var current = 0;
+        var timer = null;
+        var transitionTimer = null;
+        var isTransitioning = false;
+        var fadeDuration = 1200;
+
+        slides.forEach(function (slide, index) {
+            if (slide.classList.contains('active')) {
+                current = index;
+            }
+
+            var image = slide.querySelector('img');
+            if (image && image.getAttribute('src')) {
+                var preloadImage = new Image();
+                preloadImage.src = image.getAttribute('src');
+            }
+        });
+
+        function setActiveDot(index) {
+            dots.forEach(function (dot, dotIndex) {
+                dot.classList.toggle('active', dotIndex === index);
+            });
+        }
+
+        function goTo(index) {
+            index = (index + slides.length) % slides.length;
+
+            if (index === current || isTransitioning) {
+                return;
+            }
+
+            var outgoing = slides[current];
+            var incoming = slides[index];
+
+            isTransitioning = true;
+            setActiveDot(index);
+
+            clearTimeout(transitionTimer);
+
+            incoming.classList.remove('active');
+            incoming.style.zIndex = '3';
+            outgoing.style.zIndex = '2';
+
+            void incoming.offsetWidth;
+            incoming.classList.add('active');
+
+            transitionTimer = setTimeout(function () {
+                outgoing.classList.remove('active');
+                outgoing.style.zIndex = '';
+                incoming.style.zIndex = '';
+                current = index;
+                isTransitioning = false;
+            }, fadeDuration + 50);
+        }
+
+        function startAuto() {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                goTo(current + 1);
+            }, 4400);
+        }
+
+        function resetTimer() {
+            startAuto();
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function () {
+                goTo(current - 1);
+                resetTimer();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function () {
+                goTo(current + 1);
+                resetTimer();
+            });
+        }
+
+        dots.forEach(function (dot) {
+            dot.addEventListener('click', function () {
+                goTo(parseInt(this.getAttribute('data-index'), 10));
+                resetTimer();
+            });
+        });
+
+        setActiveDot(current);
+        startAuto();
+    });
+}());

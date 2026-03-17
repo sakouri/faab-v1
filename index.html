@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15 45 L15 20 L25 10 L35 20 L35 45" fill="none" stroke="%23e8b1aa" stroke-width="2.5" stroke-linejoin="miter"/></svg>'>
 </head>
-<body>
+<body class="home-page">
     <div id="splash" class="splash" aria-hidden="true">
         <div class="splash-logo">
             <img src="LOGO FAAB.png" alt="FAAB Architecte">
@@ -20,14 +20,14 @@
         <div class="header-content">
             <div class="logo">
                 <a href="index.html">
-                    <img src="LOGO FAAB.png" alt="FAAB Architecte" width="70" height="70">
+                    <img src="logo faab sans texte.svg" alt="FAAB Architecte" width="120" height="120" style="display:block;max-width:100%;height:auto;">
                 </a>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="vision.html">Notre Vision</a></li>
-                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="agence.html">Agence</a></li>
+                    <li><a href="realisations.html">RÉALISATIONS</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -40,74 +40,173 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-left fade-in-up">
-                    <img src="anne_julien.JPG" alt="Anne et Julien - FAAB Architecte">
+        <!-- Hero Carousel -->
+        <section class="hero-carousel-section">
+            <div class="carousel-slides">
+                <div class="carousel-slide active">
+                    <img src="carrousel1.png" alt="carousel1">
                 </div>
-                <div class="hero-right">
-                    <h1 class="hero-title fade-in-up"><span class="faab-letters">F‌A‌A‌B</span> architecte</h1>
-                    <p class="hero-subtitle fade-in-up">Agence d'architecture à vision créative et engagée</p>
-                    <div class="scroll-indicator bottom-indicator fade-in-up">
-                        <span>Défiler pour découvrir</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
+                <div class="carousel-slide">
+                    <img src="carousel2v2.png" alt="carousel2">
                 </div>
+                <div class="carousel-slide">
+                    <img src="carrousel3.png" alt="carousel3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="carrousel4.png" alt="carousel4">
+                </div>
+            </div>
+            <div class="carousel-quote">
+                <p>« Chaque projet est un morceau de ville,<br>un morceau de vie »</p>
+                <span>— Renzo Piano</span>
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Image précédente">&#8249;</button>
+            <button class="carousel-btn carousel-next" aria-label="Image suivante">&#8250;</button>
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
+                <button class="carousel-dot" data-index="1" aria-label="Image 2"></button>
+                <button class="carousel-dot" data-index="2" aria-label="Image 3"></button>
+                <button class="carousel-dot" data-index="3" aria-label="Image 4"></button>
             </div>
         </section>
 
         <!-- Agency Presentation Section -->
         <section class="content-section agency-section">
-            <h2 class="fade-in-up">Présentation de l'agence</h2>
+            <h2 class="fade-in-up section-heading-technical">SAVOIRS-FAIRE</h2>
             
             <div class="agency-content fade-in-up">
                 
-                <p>FAAB Architecte est une agence d'architecture à vision créative et engagée dans un retour aux fondamentaux<sup>(1)</sup>, créée en 2024 par Anne Blangy, architecte DE + HMONP.</p>
-                
-                <p>En septembre 2025, Julien Bergot rejoint l'agence en tant qu'associé, chargé du développement institutionnel et commercial, ainsi que des orientations stratégiques globales de la société.</p>
-                
-                <p>Après dix ans de pratique comme architecte au sein de plusieurs structures en France, l'agence est née d'une volonté de porter des valeurs contemporaines et sociétales, auxquelles je crois et me semblant juste au regard des besoins et usages de notre époque.</p>
-                
-                <p>L'architecture, la construction, l'immobilier étant en pleine mutation et essor technologique, mon ambition vise à se saisir de cette voie, afin de proposer une pratique de l'architecture ancrée dans son temps, tendant vers tous ces nouveaux besoins de l'Humain, tout en réintégrant ceux trop souvent oubliés au profit d'une « mode architecturale » de l'instant.</p>
-                
-                <p>De par mon vécu professionnel, je désire, par la création d'une agence d'architecture, sortir du paradigme de l'architecte qui impose ses choix au client, au profit d'être celui qui lui apporte une écoute et un dialogue actif, une compréhension des enjeux et objectifs tout en restant force de propositions. Je n'impose pas, je guide, afin de parvenir à la solution adaptée et créative satisfaisant mon client.</p>
-                
-                <p class="footnote"><sup>(1)</sup> C'est-à-dire concevoir des espaces adaptés et durables dans leur usage, confortables en toute saison, modulables et lumineux</p>
+                <p>FAAB Architecte intervient auprès de nos clients en mission de maitrise d’œuvre partielle et complète de manière multi-scalaire et multi-standing.
+<br>En fonction de votre projet et de son état d’avancement, nous vous accompagnons selon vos besoins avec une formule adaptée, flexible et modulable.
+</p>
             </div>
         </section>
 
-        <!-- Team Section -->
-        <section class="content-section team-section">
-            <h2 class="fade-in-up">Présentation des associés</h2>
-            
-            <div class="team-profile fade-in-up">
-                <div class="profile-image">
-                    <img src="anne.JPG" alt="Anne BLANGY">
+        <section class="content-section services-section">
+            <div class="services-list">
+                <article class="service-card fade-in-up">
+                    <div class="service-image">
+                        <img src="sf1.png" alt="Étude de faisabilité">
+                    </div>
+                    <div class="service-content">
+                        <h3>Étude de faisabilité</h3>
+                        <p>L’étude de faisabilité vérifie de façon réglementaire, technique et financière l’ensemble des possibilités constructives que permet l’assiette foncière déterminée pour le projet. L’ensemble de ces analyses permettront à FAAB de poser les intentions urbaines et architecturales au regard du contexte et de l’environnement du site, ainsi que de réaliser les premières esquisses de projet.</p>
+                        <p>Cette phase est la base de tout type de projets. Elle constituera la première étape avant la conception de votre projet.</p>
+                        <p>Notre objectif principal est le respect de votre enveloppe financière ainsi que l’anticipation de l’ensemble des contraintes éventuelles.</p>
+                        <p>FAAB Architecte vous accompagne dans l’intégralité de vos projets de construction neuve, de transformation, rénovation ou de réhabilitation, de l’idée à la réalisation.</p>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in-up">
+                    <div class="service-image">
+                        <img src="sf2.png" alt="Études architecturales et urbaines">
+                    </div>
+                    <div class="service-content">
+                        <h3>Études architecturales et urbaines</h3>
+                        <p>Les études de projet sont les étapes clés de la conception où FAAB Architecte transforme l’étude de faisabilité en un véritable projet, créatif, pérenne, réaliste et économiquement viable.</p>
+                        <p>La conception détermine les fondements et l’orientation du projet, c’est-à-dire le parti-pris architectural, urbain et environnemental inhérent à la fonctionnalité et l’usage, la réponse aux besoins des usagers, l’esthétique du bâtiment ainsi que sa méthode constructive, l’orchestration de la lumière ainsi que de la spatialité. La définition du projet se précise à chaque stade, afin de le rendre cohérent, adapté, élégant et performant.</p>
+                        <p>FAAB Architecte produit l’ensemble des plans et pièces permettant notamment la constitution de dossiers rigoureux de demande d’autorisations administratives à l’instar des permis de construire ou d’aménager.</p>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in-up">
+                    <div class="service-image">
+                        <img src="sf3.png" alt="Exécution">
+                    </div>
+                    <div class="service-content">
+                        <h3>Exécution</h3>
+                        <p>La phase d’exécution correspond à la mise en œuvre du projet sur le chantier. Elle consiste à traduire les plans validés en réalisation effective, dans le respect des délais, du budget, des contraintes notamment de site et des exigences de qualité.</p>
+                        <p>FAAB Architecte assure la direction des travaux par la conduite du chantier ainsi que la coordination et le pilotage des entreprises, le suivi des travaux et le contrôle de la conformité des ouvrages.</p>
+                        <p>Notre rôle est de vous accompagner jusqu’à la livraison et au parfait achèvement, dans le cadre d’un chantier vertueux, en veillant scrupuleusement à la maîtrise des délais, des coûts et de la qualité, à l’exécution fine de l’ouvrage jusqu’à la précision des détails techniques et constructifs, à l’application des normes en vigueur et en anticipant les aléas.</p>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in-up">
+                    <div class="service-image">
+                        <img src="sf4.png" alt="Assistance à maîtrise d'ouvrage">
+                    </div>
+                    <div class="service-content">
+                        <h3>Assistance à maîtrise d'ouvrage</h3>
+                        <p>FAAB Architecte propose une mission d’accompagnement stratégique global destiné à définir les besoins et usages, orienter la stratégie, clarifier les enjeux, piloter et budgétiser son projet.</p>
+                        <p>Dès la phase de diagnostic et de faisabilité, FAAB propose d’accompagner en qualité de conseil indépendant l’ensemble des porteurs de projets de construction neuve, de réhabilitation et de rénovation.</p>
+                        <p>Cette démarche partenariale permet à nos clients d’établir leur cahier des charges au regard de leurs enjeux et objectifs, afin de pouvoir faire réaliser leur projet « clé en main » avec un scénario clair, précis et cohérent au regard de leurs usages.</p>
+                        <p>Notre approche débute par l’identification des besoins, l’analyse de l’environnement et la conceptualisation du programme, ensuite nous détaillons l’enveloppe financière permettant la bonne réalisation du projet. Enfin nous suivons l’intégralité des étapes administratives et exécutives de la construction auprès de vous.</p>
+                        <p>FAAB Architecte en qualité de véritable partenaire garantit la transparence des échanges, un projet maîtrisé, réaliste, viable économiquement et conforme aux attentes.</p>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in-up">
+                    <div class="service-image">
+                        <img src="sf5.png" alt="Expertise">
+                    </div>
+                    <div class="service-content">
+                        <h3>Expertise</h3>
+                        <p>FAAB Architecte intervient en qualité d’expert pour la réalisation de diagnostics pluri ou mono disciplinaires (programmatique, spatial, bioclimatique, technique et constructif).</p>
+                        <p>Notre démarche vise à analyser les problématiques que vous rencontrez notamment avec votre bien, ou en tant que tiers, afin de vous prodiguer les conseils et apports nécessaires à la résorption de vos questionnements ou évènements nuisibles.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section circular-section">
+            <div class="circular-content fade-in-up">
+                <div class="circular-images" aria-hidden="true">
+                    <img src="chanvre.png" alt="Matière chanvre">
+                    <img src="pierre.png" alt="Matière pierre">
                 </div>
-                <div class="profile-content">
-                    <h3>Anne BLANGY</h3>
-                    <p class="profile-role">Architecte DE+HMNOP</p>
-                    <p class="profile-subtitle">Fondatrice et gérante depuis 2024</p>
-                    <p>Diplômée de l'ENSAP Lille (École Nationale Supérieure d'Architecture et de Paysage), j'ai construit mon expérience en exerçant au sein d'agences d'architecture reconnues pour la qualité de leurs ouvrages et ce à travers des programmes distincts (logements, ERP de différents classements).</p>
-                    <p>Mon parcours m'a permis de me forger une rigueur quotidienne dans l'exercice de ma pratique d'architecte, et notamment en tant que « femme » de l'art, une identité propre de ma pensée conceptuelle pour les édifices privés et/ou publics, ainsi qu'une précision dans le respect des temporalités du projet comme dans la qualité des ouvrages livrés.</p>
-                    <p>J'ai créé FAAB Architecte, où je pilote, en qualité de gérant, l'intégralité des phases de projets, de la conception à la livraison. Je propose par ailleurs, un service d'audits architecturaux à destination de biens communaux, associatifs et privés, permettant de soumettre une réflexion écrite aux contextes décrits, en amenant des solutions pérennes, et chiffrées afin de pallier les problématiques engendrées par les évolutions structurelles et environnementales des biens immobiliers.</p>
+                <p>FAAB architecte s’attache à l’emploi d’une économie circulaire intégrée dans ses projets dès la conception avec une volonté profonde d’usage des ressources naturelles et biosourcées valorisant une démarche sobre et vertueuse.</p>
+            </div>
+        </section>
+
+        <section class="content-section engagement-section">
+            <div class="engagement-frame">
+                <div class="engagement-title-block fade-in-up">
+                    <h2 class="engagement-main-title">
+                        <span>NOTRE ENGAGEMENT</span>
+                        <span class="shifted">RESPONSABLE</span>
+                        <span class="shifted">SOCIAL</span>
+                        <span class="shifted">ENVIRONNEMENTAL</span>
+                    </h2>
+                </div>
+
+                <div class="engagement-body fade-in-up">
+                    <p>En tant que professionnels et citoyens conscients, nous avons pleinement orienté l’agence FAAB Architecte dans une démarche environnementale réellement forte qui va au-delà de la conception et réalisation architecturale.</p>
+                    <p>Notre RSE est ancrée dans la philosophie de l’entreprise guidant ses actions et ses décisions permettant de continuellement contribuer de manière positive à la société ainsi qu’à l’environnement.</p>
+                    <p>Outre le rôle social de l’architecture, FAAB Architecte souhaite avoir un impact quotidien positif sur la société. L’ensemble de nos actions et productions doivent être inscrites dans une conscience, une sobriété et un respect profond de l’environnement.</p>
+                    <p>De la conception à la réalisation, nous pensons aux bien-être des futurs utilisateurs et mettons en place un réel équilibre proposant des solutions environnementales éco-responsable, frugales, durables, viables économiquement, permettant l’accompagnement de l’ensemble de nos Maitres d’Ouvrage dans le respect de leur cahier des charges.</p>
+                    <p>Nos engagements sont axés principalement autour de 3 démarches majeures, dans lesquels nous accordons une véritable importance :</p>
+                    <p class="engagement-followup">D E M A R C H E&nbsp;&nbsp; E N V I R O N N E M E N T A L E<br><br>D E M A R C H E&nbsp;&nbsp; S O C I E T A L E<br><br>D E M A R C H E&nbsp;&nbsp; L O C A L E</p>
                 </div>
             </div>
+        </section>
 
-            <div class="team-profile fade-in-up">
-                <div class="profile-image">
-                    <img src="julien.JPG" alt="Julien BERGOT">
-                </div>
-                <div class="profile-content">
-                    <h3>Julien BERGOT</h3>
-                    <p class="profile-role">Stratégies & Développement</p>
-                    <p class="profile-subtitle">Associé depuis 2025</p>
-                    <p>Issu d'école de commerce et titré d'un Bac +5 en Management et Stratégies d'Entreprise, j'ai exercé pendant plus de quinze ans auprès d'entreprises reconnues de la promotion immobilière et du BTP dans des postes de direction.</p>
-                    <p>Ces expériences acquises dans mes fonctions liées notamment au développement, m'a conduit à acquérir une multiplicité de facultés à entreprendre des projets réalistes tout en répondant aux nombreuses mutations économiques et environnementales, évoluant un peu plus chaque jour.</p>
-                    <p>En qualité d'associé de FAAB Architecte, j'ai la charge du développement institutionnel et commercial de l'agence, ainsi que ses orientations stratégiques globales.</p>
+        <section class="partners-marquee-section" aria-label="Nos partenaires">
+            <div class="partners-marquee-title">NOS PARTENAIRES</div>
+            <div class="partners-marquee" role="region" aria-label="Défilement des partenaires">
+                <div class="partners-track">
+                    <div class="partner-logo"><img src="aegefim.png" alt="AEGEFIM"></div>
+                    <div class="partner-logo"><img src="cogedim.png" alt="COGEDIM"></div>
+                    <div class="partner-logo"><img src="four.png" alt="FOUR"></div>
+                    <div class="partner-logo"><img src="green.png" alt="GREEN"></div>
+                    <div class="partner-logo"><img src="greencity.png" alt="GREENCITY"></div>
+                    <div class="partner-logo"><img src="inli.png" alt="INLI"></div>
+                    <div class="partner-logo"><img src="promoty.png" alt="PROMOTY"></div>
+                    <div class="partner-logo"><img src="uniti.png" alt="UNITI"></div>
+                    <div class="partner-logo"><img src="valloire.png" alt="VALLOIRE"></div>
+                    <div class="partner-logo"><img src="solid.png" alt="SOLID"></div>
+                    <div class="partner-logo"><img src="1001.png" alt="1001"></div>
+
+                    <div class="partner-logo" aria-hidden="true"><img src="aegefim.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="cogedim.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="four.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="green.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="greencity.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="inli.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="promoty.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="uniti.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="valloire.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="solid.png" alt=""></div>
+                    <div class="partner-logo" aria-hidden="true"><img src="1001.png" alt=""></div>
                 </div>
             </div>
         </section>
