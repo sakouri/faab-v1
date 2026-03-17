@@ -2132,3 +2132,70 @@ footer {
     text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     display: block;
 }
+
+/* Mobile fix - agence hero photo should display fully (no bottom-only crop) */
+@media (max-width: 900px) {
+    .hero-section.agence-layout-section {
+        height: auto;
+        min-height: unset;
+        padding-top: 72px;
+        justify-content: flex-start;
+    }
+
+    .agence-layout-section .hero-left,
+    .agence-layout-section .hero-left.fade-in-up {
+        margin-top: 0 !important;
+        align-self: start;
+    }
+
+    .agence-layout-section .hero-left img {
+        width: min(88vw, 420px);
+        max-width: 100%;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        object-position: center top;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section.agence-layout-section {
+        padding-top: 64px !important;
+    }
+
+    .agence-layout-section .hero-left img {
+        width: 92vw;
+    }
+}
+
+/* Mobile-only refinements: centered white burger + slightly smaller long texts */
+@media (max-width: 768px) {
+    .home-page header {
+        position: fixed;
+    }
+
+    .home-page header .menu-toggle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1101;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-page header:not(.scrolled) .menu-toggle span {
+        background-color: #ffffff;
+    }
+
+    .agence-long-text p,
+    .agence-programmes-section .agence-programmes-flow p,
+    .agence-manifesto-section .agence-manifesto-body p,
+    .service-content p {
+        font-size: 0.94rem !important;
+        line-height: 1.56 !important;
+    }
+}
