@@ -143,6 +143,88 @@
     padding-left: 100px;
 }
 
+.contact-box-v2 {
+    max-width: 980px;
+    display: block;
+    border: none;
+    border-radius: 0 !important;
+    box-shadow: none;
+    background: transparent;
+    padding: 2.2rem 1.4rem 1.6rem;
+}
+
+.contact-branches {
+    display: flex;
+    flex-direction: column;
+    gap: 5.4rem;
+}
+
+.branch-block h2 {
+    margin: 0 0 2rem;
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.branch-line {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 1.9rem;
+}
+
+.branch-line p {
+    margin: 0;
+    color: #1f1f1f;
+    font-size: clamp(1.2rem, 2.2vw, 2.8rem);
+    line-height: 1.18;
+    font-weight: 300;
+}
+
+.branch-icon {
+    color: #e8b1aa;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.25rem;
+}
+
+.contact-utilities {
+    margin-top: 2.5rem;
+}
+
+.branch-line-mail {
+    margin-bottom: 2.3rem;
+}
+
+.branch-line-mail p a {
+    color: #1f5fae;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+}
+
+.contact-social-v2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 64px;
+}
+
+.contact-social-v2 a {
+    color: #e8b1aa;
+    opacity: 0.95;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-social-v2 a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 900px) {
     .contact-box {
         grid-template-columns: 1fr;
@@ -157,6 +239,36 @@
     .social-links {
         padding-left: 0;
         justify-content: flex-start;
+    }
+    .contact-box-v2 {
+        padding: 1.2rem 0.35rem 1rem;
+    }
+    .contact-branches {
+        gap: 3.2rem;
+    }
+    .branch-block h2 {
+        margin-bottom: 1.3rem;
+        font-size: clamp(1.35rem, 5.2vw, 1.55rem);
+    }
+    .branch-line {
+        grid-template-columns: 38px 1fr;
+        gap: 0.75rem;
+        margin-bottom: 1.2rem;
+    }
+    .branch-line p {
+        font-size: clamp(0.96rem, 4.6vw, 1.35rem);
+        line-height: 1.28;
+    }
+    .contact-utilities {
+        margin-top: 1.4rem;
+    }
+    .contact-social-v2 {
+        margin-left: 0;
+        gap: 0.7rem;
+    }
+    .contact-social-v2 a svg {
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -214,6 +326,9 @@
     .social-links {
         padding-top: 0.5rem;
         gap: 0.7rem;
+    }
+    .branch-line p {
+        font-size: clamp(0.94rem, 4.8vw, 1.12rem);
     }
     /* HEADER et LOGO plus compacts sur mobile */
     header {
@@ -433,8 +548,9 @@ a:hover {
 .agence-manifesto-section .agence-manifesto-kicker {
     margin: 0;
     max-width: none;
-    font-size: 1.04rem;
-    line-height: 1.48;
+    font-size: 1.04rem !important;
+    line-height: 1.35 !important;
+    font-weight: 400;
     color: #4b4b4b;
     text-align: left;
 }
@@ -458,6 +574,94 @@ a:hover {
     line-height: 1.48;
     color: #4b4b4b;
     text-align: justify;
+}
+
+.agence-team-section {
+    width: min(94%, 1420px);
+    margin: 0 auto;
+    padding: 3.2rem 2rem 4rem;
+}
+
+.agence-team-heading {
+    margin-bottom: 3.2rem;
+}
+
+.agence-team-heading h1 {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.45vw, 1.22rem);
+    font-weight: 400;
+    line-height: 1.28;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.agence-team-heading h1 span {
+    color: #ffffff;
+    background: linear-gradient(90deg, #e8b1aa 0%, #f1beb8 100%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0.06em 0.42em;
+}
+
+.agence-team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+}
+
+.agence-profile {
+    grid-template-columns: 190px 1fr;
+    gap: 2.7rem;
+    margin-bottom: 0;
+}
+
+.agence-profile-image {
+    border-radius: 0;
+}
+
+.agence-profile-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5.7;
+    object-fit: cover;
+}
+
+.agence-profile-content .profile-name {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+    letter-spacing: 0.03em;
+    font-weight: 700;
+}
+
+.agence-profile-content .profile-role {
+    color: #ab9ea1;
+    font-size: clamp(1rem, 1.4vw, 1.35rem);
+    margin-bottom: 0.2rem !important;
+}
+
+.agence-profile-content .profile-subtitle {
+    color: #bbb0b2;
+    font-style: normal;
+    font-size: clamp(0.88rem, 1.12vw, 1.06rem);
+    margin-bottom: 1rem !important;
+}
+
+.agence-profile-content p {
+    margin: 0 0 1.2rem;
+    color: #464646;
+    font-size: 1.04rem !important;
+    line-height: 1.45;
+    text-align: justify;
+    max-width: none;
+}
+
+.agence-profile-content .profile-quote {
+    margin-top: 1.3rem;
+    color: #e8b1aa;
+    font-style: italic;
 }
 
 /* Header */
@@ -1747,6 +1951,47 @@ footer {
     .agence-manifesto-header h2 {
         text-align: left;
         font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+    .agence-team-section {
+        width: min(96%, 1420px);
+        padding: 2.2rem 0.5rem 3rem;
+    }
+    .agence-team-heading {
+        margin-bottom: 2rem;
+    }
+    .agence-team-heading h1 {
+        font-size: clamp(0.92rem, 3.6vw, 1.2rem);
+        line-height: 1.35;
+        letter-spacing: 0.03em;
+        white-space: normal;
+    }
+    .agence-team-list {
+        gap: 2.2rem;
+    }
+    .agence-profile {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .agence-profile-image {
+        max-width: 200px;
+        margin: 0;
+    }
+    .agence-profile-content .profile-name {
+        font-size: clamp(0.86rem, 3.2vw, 1rem);
+    }
+    .agence-profile-content .profile-role {
+        font-size: clamp(0.9rem, 3.4vw, 1.04rem);
+    }
+    .agence-profile-content .profile-subtitle {
+        font-size: clamp(0.78rem, 3vw, 0.92rem);
+    }
+    .agence-profile-content p {
+        font-size: 1.04rem !important;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    .agence-profile-content .profile-quote {
+        margin-top: 1.1rem;
     }
     .services-section {
         padding-left: 1.6%;
