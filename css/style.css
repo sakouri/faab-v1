@@ -1760,7 +1760,7 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--bg-color);
+        background-color: transparent;
         padding: 0;
         max-height: 0;
         overflow: hidden;
@@ -1769,7 +1769,7 @@ footer {
     
     nav.active {
         max-height: 300px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: none;
     }
     
     nav ul {
