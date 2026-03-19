@@ -2610,3 +2610,29 @@ footer {
         text-align: center !important;
     }
 }
+
+/* Final mobile override: no clipped text + justified agency texts */
+@media (max-width: 600px) {
+    .hero-section.agence-layout-section .agence-long-text p,
+    .agence-programmes-section .agence-programmes-flow p,
+    .agence-manifesto-section .agence-manifesto-kicker,
+    .agence-manifesto-section .agence-manifesto-body p,
+    .content-section .agence-theory-box p,
+    .team-profile.agence-profile .profile-content.agence-profile-content p {
+        text-align: justify !important;
+        text-justify: inter-word;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        hyphens: auto;
+    }
+
+    .contact-box-v2,
+    .contact-box-v2 p,
+    .contact-box-v2 a,
+    .contact-box-v2 h2 {
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
