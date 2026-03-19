@@ -2583,3 +2583,30 @@ footer {
         line-height: 1.48 !important;
     }
 }
+
+/* Mobile safety fix: prevent text clipping + center Anne/Julien profile media and headings */
+@media (max-width: 600px) {
+    .contact-box-v2,
+    .contact-branches,
+    .branch-block,
+    .branch-block h2,
+    .branch-line p,
+    .branch-line-mail p a,
+    .agence-team-heading h1,
+    .agence-profile-content p {
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .team-profile.agence-profile .profile-image.agence-profile-image {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .team-profile.agence-profile .profile-content.agence-profile-content .profile-name,
+    .team-profile.agence-profile .profile-content.agence-profile-content .profile-role,
+    .team-profile.agence-profile .profile-content.agence-profile-content .profile-subtitle {
+        text-align: center !important;
+    }
+}
