@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACCUEIL | FAAB architecte</title>
-    <link rel="stylesheet" href="./css/style.css?v=20260317">
+    <link rel="stylesheet" href="css/style.css?v=20260328">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15 45 L15 20 L25 10 L35 20 L35 45" fill="none" stroke="%23e8b1aa" stroke-width="2.5" stroke-linejoin="miter"/></svg>'>
 </head>
 <body class="home-page">
@@ -25,10 +25,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="agence.html">Agence</a></li>
-                    <li><a href="realisations.html">RÉALISATIONS</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" class="active">accueil</a></li>
+                    <li><a href="agence.html">agence</a></li>
+                    <li><a href="realisations.html">réalisations</a></li>
+                    <li><a href="contact.html">contact</a></li>
                 </ul>
             </nav>
             <div class="menu-toggle">
@@ -40,142 +40,82 @@
     </header>
 
     <main>
-        <!-- Hero Carousel -->
-        <section class="hero-carousel-section">
-            <div class="carousel-slides">
-                <div class="carousel-slide active">
-                    <img src="carrousel1.png" alt="carousel1">
+        <section class="hp-hero hp-shell stagger-group">
+            <figure class="hp-hero-visual fade-in-up">
+                <img src="maison_header.svg" alt="Perspective de maison">
+            </figure>
+            <p class="hp-hero-intro fade-in-up">
+                <span class="highlight-blue-dynamic">Concepteurs d'espaces de vie</span>
+                éco-responsables à vision créative, engagée et durable
+            </p>
+        </section>
+
+        <section class="hp-savoir hp-shell">
+            <div class="hp-savoir-grid stagger-group">
+                <div class="hp-savoir-left fade-in-up">
+                    <figure class="hp-facade">
+                        <img src="maison.svg" alt="Dessin architectural de façade">
+                    </figure>
+                    <p class="hp-left-copy">
+                        En fonction de votre projet et de son état d'avancement, nous vous accompagnons selon vos besoins avec une formule adaptée, flexible et modulable.
+                    </p>
                 </div>
-                <div class="carousel-slide">
-                    <img src="carousel2v2.png" alt="carousel2">
+
+                <div class="hp-savoir-right fade-in-up">
+                    <h2 class="hp-display-title"><span class="hp-display-prefix">nos</span> <span class="highlight-yellow-dynamic">savoirs-faire</span></h2>
+                    <p class="hp-right-copy">
+                        FAAB Architecte intervient auprès de nos clients en mission de maîtrise d'œuvre partielle et complète de manière multi-scalaire et multi-standing.
+                    </p>
+
+                    <figure class="hp-quote-figure" aria-label="Citation architecturale">
+                        <img src="archi.svg" alt="Citation de Renzo Piano">
+                    </figure>
                 </div>
-                <div class="carousel-slide">
-                    <img src="carrousel3.png" alt="carousel3">
-                </div>
-                <div class="carousel-slide">
-                    <img src="carrousel4.png" alt="carousel4">
-                </div>
-            </div>
-            <div class="carousel-quote">
-                <p>« Chaque projet est un morceau de ville,<br>un morceau de vie »</p>
-                <span>— Renzo Piano</span>
-            </div>
-            <button class="carousel-btn carousel-prev" aria-label="Image précédente">&#8249;</button>
-            <button class="carousel-btn carousel-next" aria-label="Image suivante">&#8250;</button>
-            <div class="carousel-dots">
-                <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
-                <button class="carousel-dot" data-index="1" aria-label="Image 2"></button>
-                <button class="carousel-dot" data-index="2" aria-label="Image 3"></button>
-                <button class="carousel-dot" data-index="3" aria-label="Image 4"></button>
             </div>
         </section>
 
-        <!-- Agency Presentation Section -->
-        <section class="content-section agency-section">
-            <h2 class="fade-in-up section-heading-technical">SAVOIRS-FAIRE</h2>
-            
-            <div class="agency-content fade-in-up">
-                
-                <p>FAAB Architecte intervient auprès de nos clients en mission de maitrise d’œuvre partielle et complète de manière multi-scalaire et multi-standing.
-<br>En fonction de votre projet et de son état d’avancement, nous vous accompagnons selon vos besoins avec une formule adaptée, flexible et modulable.
-</p>
-            </div>
-        </section>
-
-        <section class="content-section services-section">
-            <div class="services-list">
-                <article class="service-card fade-in-up">
-                    <div class="service-image">
-                        <img src="sf1.png" alt="Étude de faisabilité">
+        <section class="hp-study hp-shell">
+            <button class="hp-study-nav-btn hp-study-prev" id="hp-study-prev" type="button" aria-label="Afficher le savoir-faire précédent">
+                <span aria-hidden="true">&#8592;</span>
+            </button>
+            <button class="hp-study-nav-btn hp-study-next" id="hp-study-next" type="button" aria-label="Afficher le savoir-faire suivant">
+                <span aria-hidden="true">&#8594;</span>
+            </button>
+            <div class="hp-study-grid stagger-group">
+                <h2 class="hp-study-title fade-in-up" id="hp-study-title">étude de <span class="highlight-yellow-dynamic">faisabilité</span></h2>
+                <div class="hp-study-copy fade-in-up" id="hp-study-copy-wrap">
+                    <div class="hp-study-copy-content" id="hp-study-content" aria-live="polite">
+                        <p>
+                            L'étude de faisabilité vérifie de façon réglementaire, technique et financière l'ensemble des possibilités constructives que permet l'assiette foncière déterminée pour le projet. L'ensemble de ces analyses permettront à FAAB de poser les intentions urbaines et architecturales au regard du contexte et de l'environnement du site, ainsi que de réaliser les premières esquisses de projet.
+                        </p>
+                        <p>
+                            Cette phase est la base de tout type de projets. Elle constituera la première étape avant la conception de votre projet.
+                        </p>
+                        <p>
+                            Notre objectif principal est le respect de votre enveloppe financière ainsi que l'anticipation de l'ensemble des contraintes éventuelles.
+                        </p>
+                        <p>
+                            FAAB Architecte vous accompagne dans l'intégralité de vos projets de construction (neuve), de transformation, rénovation ou de réhabilitation, de l'idée à la réalisation.
+                        </p>
                     </div>
-                    <div class="service-content">
-                        <h3>Étude de faisabilité</h3>
-                        <p>L’étude de faisabilité vérifie de façon réglementaire, technique et financière l’ensemble des possibilités constructives que permet l’assiette foncière déterminée pour le projet. L’ensemble de ces analyses permettront à FAAB de poser les intentions urbaines et architecturales au regard du contexte et de l’environnement du site, ainsi que de réaliser les premières esquisses de projet.</p>
-                        <p>Cette phase est la base de tout type de projets. Elle constituera la première étape avant la conception de votre projet.</p>
-                        <p>Notre objectif principal est le respect de votre enveloppe financière ainsi que l’anticipation de l’ensemble des contraintes éventuelles.</p>
-                        <p>FAAB Architecte vous accompagne dans l’intégralité de vos projets de construction neuve, de transformation, rénovation ou de réhabilitation, de l’idée à la réalisation.</p>
-                    </div>
-                </article>
-
-                <article class="service-card fade-in-up">
-                    <div class="service-image">
-                        <img src="sf2.png" alt="Études architecturales et urbaines">
-                    </div>
-                    <div class="service-content">
-                        <h3>Études architecturales et urbaines</h3>
-                        <p>Les études de projet sont les étapes clés de la conception où FAAB Architecte transforme l’étude de faisabilité en un véritable projet, créatif, pérenne, réaliste et économiquement viable.</p>
-                        <p>La conception détermine les fondements et l’orientation du projet, c’est-à-dire le parti-pris architectural, urbain et environnemental inhérent à la fonctionnalité et l’usage, la réponse aux besoins des usagers, l’esthétique du bâtiment ainsi que sa méthode constructive, l’orchestration de la lumière ainsi que de la spatialité. La définition du projet se précise à chaque stade, afin de le rendre cohérent, adapté, élégant et performant.</p>
-                        <p>FAAB Architecte produit l’ensemble des plans et pièces permettant notamment la constitution de dossiers rigoureux de demande d’autorisations administratives à l’instar des permis de construire ou d’aménager.</p>
-                    </div>
-                </article>
-
-                <article class="service-card fade-in-up">
-                    <div class="service-image">
-                        <img src="sf3.png" alt="Exécution">
-                    </div>
-                    <div class="service-content">
-                        <h3>Exécution</h3>
-                        <p>La phase d’exécution correspond à la mise en œuvre du projet sur le chantier. Elle consiste à traduire les plans validés en réalisation effective, dans le respect des délais, du budget, des contraintes notamment de site et des exigences de qualité.</p>
-                        <p>FAAB Architecte assure la direction des travaux par la conduite du chantier ainsi que la coordination et le pilotage des entreprises, le suivi des travaux et le contrôle de la conformité des ouvrages.</p>
-                        <p>Notre rôle est de vous accompagner jusqu’à la livraison et au parfait achèvement, dans le cadre d’un chantier vertueux, en veillant scrupuleusement à la maîtrise des délais, des coûts et de la qualité, à l’exécution fine de l’ouvrage jusqu’à la précision des détails techniques et constructifs, à l’application des normes en vigueur et en anticipant les aléas.</p>
-                    </div>
-                </article>
-
-                <article class="service-card fade-in-up">
-                    <div class="service-image">
-                        <img src="sf4.png" alt="Assistance à maîtrise d'ouvrage">
-                    </div>
-                    <div class="service-content">
-                        <h3>Assistance à maîtrise d'ouvrage</h3>
-                        <p>FAAB Architecte propose une mission d’accompagnement stratégique global destiné à définir les besoins et usages, orienter la stratégie, clarifier les enjeux, piloter et budgétiser son projet.</p>
-                        <p>Dès la phase de diagnostic et de faisabilité, FAAB propose d’accompagner en qualité de conseil indépendant l’ensemble des porteurs de projets de construction neuve, de réhabilitation et de rénovation.</p>
-                        <p>Cette démarche partenariale permet à nos clients d’établir leur cahier des charges au regard de leurs enjeux et objectifs, afin de pouvoir faire réaliser leur projet « clé en main » avec un scénario clair, précis et cohérent au regard de leurs usages.</p>
-                        <p>Notre approche débute par l’identification des besoins, l’analyse de l’environnement et la conceptualisation du programme, ensuite nous détaillons l’enveloppe financière permettant la bonne réalisation du projet. Enfin nous suivons l’intégralité des étapes administratives et exécutives de la construction auprès de vous.</p>
-                        <p>FAAB Architecte en qualité de véritable partenaire garantit la transparence des échanges, un projet maîtrisé, réaliste, viable économiquement et conforme aux attentes.</p>
-                    </div>
-                </article>
-
-                <article class="service-card fade-in-up">
-                    <div class="service-image">
-                        <img src="sf5.png" alt="Expertise">
-                    </div>
-                    <div class="service-content">
-                        <h3>Expertise</h3>
-                        <p>FAAB Architecte intervient en qualité d’expert pour la réalisation de diagnostics pluri ou mono disciplinaires (programmatique, spatial, bioclimatique, technique et constructif).</p>
-                        <p>Notre démarche vise à analyser les problématiques que vous rencontrez notamment avec votre bien, ou en tant que tiers, afin de vous prodiguer les conseils et apports nécessaires à la résorption de vos questionnements ou évènements nuisibles.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="content-section circular-section">
-            <div class="circular-content fade-in-up">
-                <div class="circular-images" aria-hidden="true">
-                    <img src="chanvre.png" alt="Matière chanvre">
-                    <img src="pierre.png" alt="Matière pierre">
                 </div>
-                <p>FAAB architecte s’attache à l’emploi d’une économie circulaire intégrée dans ses projets dès la conception avec une volonté profonde d’usage des ressources naturelles et biosourcées valorisant une démarche sobre et vertueuse.</p>
             </div>
         </section>
 
-        <section class="content-section engagement-section">
-            <div class="engagement-frame">
-                <div class="engagement-title-block fade-in-up">
-                    <h2 class="engagement-main-title">
-                        <span>NOTRE ENGAGEMENT</span>
-                        <span class="shifted">RESPONSABLE</span>
-                        <span class="shifted">SOCIAL</span>
-                        <span class="shifted">ENVIRONNEMENTAL</span>
-                    </h2>
-                </div>
+        <section class="hp-eco hp-shell">
+            <div class="hp-eco-grid stagger-group">
+                <p class="hp-eco-copy fade-in-up">
+                    <span class="highlight-yellow-dynamic">FAAB architecte</span>
+                    s'attache à l'emploi d'une économie circulaire intégrée dans ses projets dès la conception avec une volonté profonde d'usage des ressources naturelles et biosourcées valorisant une démarche sobre et vertueuse.
+                </p>
 
-                <div class="engagement-body fade-in-up">
-                    <p>En tant que professionnels et citoyens conscients, nous avons pleinement orienté l’agence FAAB Architecte dans une démarche environnementale réellement forte qui va au-delà de la conception et réalisation architecturale.</p>
-                    <p>Notre RSE est ancrée dans la philosophie de l’entreprise guidant ses actions et ses décisions permettant de continuellement contribuer de manière positive à la société ainsi qu’à l’environnement.</p>
-                    <p>Outre le rôle social de l’architecture, FAAB Architecte souhaite avoir un impact quotidien positif sur la société. L’ensemble de nos actions et productions doivent être inscrites dans une conscience, une sobriété et un respect profond de l’environnement.</p>
-                    <p>De la conception à la réalisation, nous pensons aux bien-être des futurs utilisateurs et mettons en place un réel équilibre proposant des solutions environnementales éco-responsable, frugales, durables, viables économiquement, permettant l’accompagnement de l’ensemble de nos Maitres d’Ouvrage dans le respect de leur cahier des charges.</p>
-                    <p>Nos engagements sont axés principalement autour de 3 démarches majeures, dans lesquels nous accordons une véritable importance :</p>
-                    <p class="engagement-followup">D E M A R C H E&nbsp;&nbsp; E N V I R O N N E M E N T A L E<br><br>D E M A R C H E&nbsp;&nbsp; S O C I E T A L E<br><br>D E M A R C H E&nbsp;&nbsp; L O C A L E</p>
+                <div class="hp-eco-images fade-in-up">
+                    <figure class="hp-eco-image hp-eco-image-top">
+                        <img src="chanvre.png" alt="Matériau biosourcé">
+                    </figure>
+                    <figure class="hp-eco-image hp-eco-image-bottom">
+                        <img src="pierre.png" alt="Matériau minéral naturel">
+                    </figure>
                 </div>
             </div>
         </section>
@@ -221,6 +161,6 @@
         </div>
     </footer>
 
-    <script src="./js/main.js?v=20260317"></script>
+    <script src="js/main.js?v=20260328"></script>
 </body>
 </html>

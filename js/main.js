@@ -1,164 +1,136 @@
-// Effet surlignage progressif séquentiel sur deux portions du hero (corrigé)
-document.addEventListener('DOMContentLoaded', function() {
-    var h1 = document.getElementById('highlight-rose-1');
-    var h2 = document.getElementById('highlight-rose-2');
-    if (h1 && h2) {
-        h1.classList.remove('animate');
-        h2.classList.remove('animate');
-        void h1.offsetWidth; void h2.offsetWidth;
-        setTimeout(function() {
-            h1.classList.add('animate');
-            setTimeout(function() {
-                h2.classList.add('animate');
-            }, 1200);
-        }, 200);
-    }
-});
-// Effet surlignage progressif sur la phrase clé du hero
-document.addEventListener('DOMContentLoaded', function() {
-    var highlight = document.querySelector('.highlight-rose');
-    if (highlight) {
-        // Force le repaint pour garantir l'animation
-        highlight.classList.remove('animate');
-        void highlight.offsetWidth;
-        setTimeout(function() {
-            highlight.classList.add('animate');
-        }, 200);
-    }
-});
-// Ajoute l'effet de surlignage progressif sur la phrase clé du hero
-document.addEventListener('DOMContentLoaded', function() {
-    var highlight = document.querySelector('.highlight-rose');
-    if (highlight) {
-        setTimeout(function() {
-            highlight.classList.add('animate');
-        }, 350);
-    }
-});
-// Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', function() {
-        // Menu latéral burger
-        const burger = document.querySelector('.burger-menu');
-        const sideMenu = document.getElementById('side-menu');
+document.addEventListener('DOMContentLoaded', function () {
+    var splash = document.getElementById('splash');
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (burger && sideMenu) {
-            burger.addEventListener('click', function() {
-                const isOpen = sideMenu.classList.contains('open');
-                if (isOpen) {
-                    sideMenu.classList.remove('open');
-                    sideMenu.setAttribute('aria-hidden', 'true');
-                    burger.classList.remove('open');
-                } else {
-                    sideMenu.classList.add('open');
-                    sideMenu.setAttribute('aria-hidden', 'false');
-                    burger.classList.add('open');
-                }
-            });
-        }
-    // Splash screen handling - fade-up effect then fades out
-    const splash = document.getElementById('splash');
     if (splash) {
-        // Check if user has already seen the splash (via sessionStorage)
-        const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-        
-        if (hasSeenSplash) {
-            // If already seen, remove splash immediately
+        var hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+
+        if (hasSeenSplash || prefersReducedMotion) {
             splash.style.display = 'none';
-            if (splash.parentNode) splash.parentNode.removeChild(splash);
+            if (splash.parentNode) {
+                splash.parentNode.removeChild(splash);
+            }
         } else {
-            // First visit - show splash animation
             sessionStorage.setItem('hasSeenSplash', 'true');
-            
-            // Wait for fade-up (1.5s) + pause (0.4s), then fade out splash (1s)
-            setTimeout(() => {
+            setTimeout(function () {
                 splash.classList.add('hidden');
-                setTimeout(() => {
-                    if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+                setTimeout(function () {
+                    if (splash && splash.parentNode) {
+                        splash.parentNode.removeChild(splash);
+                    }
                 }, 1000);
             }, 1900);
         }
     }
-    // Animation des éléments au chargement de la page
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(element => {
-        element.style.opacity = '0';
-        setTimeout(() => {
-            element.style.opacity = '1';
-        }, 100);
-    });
 
-    // Gestion du menu mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
+    var burger = document.querySelector('.burger-menu');
+    var sideMenu = document.getElementById('side-menu');
+
+    if (burger && sideMenu) {
+        burger.addEventListener('click', function () {
+            var isOpen = sideMenu.classList.contains('open');
+            sideMenu.classList.toggle('open', !isOpen);
+            sideMenu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+            burger.classList.toggle('open', !isOpen);
+        });
+    }
+
+    var menuToggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function () {
             nav.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
     }
 
-    // Effet de scroll pour le header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
+    var header = document.querySelector('header');
+    var isHomePage = document.body.classList.contains('home-page');
+
+    function handleHeaderOnScroll() {
+        if (!header) {
+            return;
+        }
+
+        if (isHomePage) {
             header.classList.remove('scrolled');
+            return;
         }
-        
-        // Masquer définitivement l'indicateur de scroll dès qu'on scroll
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        if (scrollIndicator && window.scrollY > 10) {
-            scrollIndicator.style.display = 'none';
-        }
-    });
 
-    // Animation au scroll pour les sections
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    }
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+    handleHeaderOnScroll();
+    window.addEventListener('scroll', handleHeaderOnScroll, { passive: true });
+
+    var revealItems = document.querySelectorAll('.fade-in-up');
+
+    document.querySelectorAll('.stagger-group').forEach(function (group) {
+        var groupItems = group.querySelectorAll('.fade-in-up');
+        groupItems.forEach(function (item, index) {
+            item.style.transitionDelay = (index * 0.14).toFixed(2) + 's';
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in-up').forEach(item => {
-        observer.observe(item);
     });
 
-    document.querySelectorAll('.vision-item, .team-member, .contact-item').forEach(item => {
-        item.classList.add('fade-in');
-        observer.observe(item);
+    if (prefersReducedMotion) {
+        revealItems.forEach(function (item) {
+            item.classList.add('visible');
+        });
+    } else if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -8% 0px',
+            threshold: 0.12
+        });
+
+        revealItems.forEach(function (item) {
+            observer.observe(item);
+        });
+    } else {
+        revealItems.forEach(function (item) {
+            item.classList.add('visible');
+        });
+    }
+
+    document.querySelectorAll('.vision-item, .team-member').forEach(function (element) {
+        element.addEventListener('mouseenter', function () {
+            element.style.transition = 'transform 0.3s ease';
+            element.style.transform = 'translateY(-5px)';
+        });
+
+        element.addEventListener('mouseleave', function () {
+            element.style.transform = 'translateY(0)';
+        });
     });
 
-    // Gestion du formulaire de contact
-    const contactForm = document.getElementById('contactForm');
+    var contactForm = document.getElementById('contactForm');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulation d'envoi de formulaire
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (!submitBtn) {
+                return;
+            }
+
+            var originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Envoi en cours...';
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Message envoyé !';
-                
-                // Réinitialiser le formulaire
+
+            setTimeout(function () {
+                submitBtn.textContent = 'Message envoye !';
                 contactForm.reset();
-                
-                // Rétablir le bouton après 3 secondes
-                setTimeout(() => {
+
+                setTimeout(function () {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }, 3000);
@@ -166,148 +138,124 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Effet de survol pour les éléments interactifs
-    const interactiveElements = document.querySelectorAll('.vision-item, .team-member');
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            this.style.transition = 'transform 0.3s ease';
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-});
-// Effet surlignage progressif séquentiel sur deux portions du hero
-(function() {
-  document.addEventListener('DOMContentLoaded', function() {
-    var h1 = document.getElementById('highlight-rose-1');
-    var h2 = document.getElementById('highlight-rose-2');
-    if (h1 && h2) {
-      h1.classList.remove('animate');
-      h2.classList.remove('animate');
-      void h1.offsetWidth; void h2.offsetWidth;
-      setTimeout(function() {
-        h1.classList.add('animate');
-        setTimeout(function() {
-          h2.classList.add('animate');
-        }, 1200);
-      }, 200);
-    }
-  });
-})();
+    var studyTitle = document.getElementById('hp-study-title');
+    var studyContent = document.getElementById('hp-study-content');
+    var studyPrev = document.getElementById('hp-study-prev');
+    var studyNext = document.getElementById('hp-study-next');
 
-// ====== Carrousel hero (accueil) ======
-(function () {
-    document.addEventListener('DOMContentLoaded', function () {
-        var slides = document.querySelectorAll('.carousel-slide');
-        var dots   = document.querySelectorAll('.carousel-dot');
-        var prevBtn = document.querySelector('.carousel-prev');
-        var nextBtn = document.querySelector('.carousel-next');
-        if (!slides.length) return;
-
-        var current = 0;
-        var timer = null;
-        var transitionTimer = null;
-        var isTransitioning = false;
-        var fadeDuration = 1200;
-
-        slides.forEach(function (slide, index) {
-            if (slide.classList.contains('active')) {
-                current = index;
+    if (studyTitle && studyContent && studyNext && studyPrev) {
+        var savoirFaireItems = [
+            {
+                titleHtml: "étude de <span class=\"highlight-yellow-dynamic\">faisabilité</span>",
+                paragraphs: [
+                    "L'étude de faisabilité vérifie de façon réglementaire, technique et financière l'ensemble des possibilités constructives que permet l'assiette foncière déterminée pour le projet. L'ensemble de ces analyses permettront à FAAB de poser les intentions urbaines et architecturales au regard du contexte et de l'environnement du site, ainsi que de réaliser les premières esquisses de projet.",
+                    "Cette phase est la base de tout type de projets. Elle constituera la première étape avant la conception de votre projet.",
+                    "Notre objectif principal est le respect de votre enveloppe financière ainsi que l'anticipation de l'ensemble des contraintes éventuelles.",
+                    "FAAB Architecte vous accompagne dans l'intégralité de vos projets de construction (neuve), de transformation, rénovation ou de réhabilitation, de l'idée à la réalisation."
+                ]
+            },
+            {
+                titleHtml: "étude <span class=\"highlight-yellow-dynamic\">architecturale et urbaine</span>",
+                paragraphs: [
+                    "Les études de projet sont les étapes clés de la conception où FAAB Architecte transforme l'étude de faisabilité en un véritable projet, créatif, pérenne, réaliste et économiquement viable.",
+                    "La conception détermine les fondements et l'orientation du projet, c'est-à-dire le parti-pris architectural, urbain et environnemental inhérent à la fonctionnalité et à l'usage, la réponse aux besoins des usagers, l'esthétique du bâtiment ainsi que sa méthode constructive, l'orchestration de la lumière ainsi que de la spatialité. La définition du projet se précise à chaque stade, afin de le rendre cohérent, adapté, élégant et performant.",
+                    "FAAB Architecte produit l'ensemble des plans et pièces permettant notamment la constitution de dossiers rigoureux de demande d'autorisations administratives à l'instar des permis de construire ou d'aménager."
+                ]
+            },
+            {
+                titleHtml: "<span class=\"highlight-yellow-dynamic\">exécution</span>",
+                paragraphs: [
+                    "La phase d'exécution correspond à la mise en œuvre du projet sur le chantier. Elle consiste à traduire les plans validés en réalisation effective, dans le respect des délais, du budget, des contraintes notamment de site et des exigences de qualité.",
+                    "FAAB Architecte assure la direction des travaux par la conduite du chantier ainsi que la coordination et le pilotage des entreprises, le suivi des travaux et le contrôle de la conformité des ouvrages.",
+                    "Notre rôle est de vous accompagner jusqu'à la livraison et au parfait achèvement, dans le cadre d'un chantier vertueux, en veillant scrupuleusement à la maîtrise des délais, des coûts et de la qualité, à l'exécution fine de l'ouvrage jusqu'à la précision des détails techniques et constructifs, à l'application des normes en vigueur et en anticipant les aléas."
+                ]
+            },
+            {
+                titleHtml: "assistance à <span class=\"highlight-yellow-dynamic\">maîtrise d'ouvrage</span>",
+                paragraphs: [
+                    "FAAB Architecte propose une mission d'accompagnement stratégique global destinée à définir les besoins et usages, orienter la stratégie, clarifier les enjeux, piloter et budgétiser son projet.",
+                    "Dès la phase de diagnostic et de faisabilité, FAAB propose d'accompagner en qualité de conseil indépendant l'ensemble des porteurs de projets de construction neuve, de réhabilitation et de rénovation.",
+                    "Cette démarche partenariale permet à nos clients d'établir leur cahier des charges au regard de leurs enjeux et objectifs, afin de pouvoir faire réaliser leur projet clé en main avec un scénario clair, précis et cohérent au regard de leurs usages.",
+                    "Notre approche débute par l'identification des besoins, l'analyse de l'environnement et la conceptualisation du programme, ensuite nous détaillons l'enveloppe financière permettant la bonne réalisation du projet. Enfin nous suivons l'intégralité des étapes administratives et exécutives de la construction auprès de vous.",
+                    "FAAB Architecte en qualité de véritable partenaire garantit la transparence des échanges, un projet maîtrisé, réaliste, viable économiquement et conforme aux attentes."
+                ]
+            },
+            {
+                titleHtml: "<span class=\"highlight-yellow-dynamic\">expertise</span>",
+                paragraphs: [
+                    "FAAB Architecte intervient en qualité d'expert pour la réalisation de diagnostics pluri ou monodisciplinaires (programmatique, spatial, bioclimatique, technique et constructif).",
+                    "Notre démarche vise à analyser les problématiques que vous rencontrez notamment avec votre bien, ou en tant que tiers, afin de vous prodiguer les conseils et apports nécessaires à la résorption de vos questionnements ou événements nuisibles."
+                ]
             }
+        ];
 
-            var image = slide.querySelector('img');
-            if (image && image.getAttribute('src')) {
-                var preloadImage = new Image();
-                preloadImage.src = image.getAttribute('src');
-            }
-        });
+        var studyIndex = 0;
+        var isAnimating = false;
 
-        function setActiveDot(index) {
-            dots.forEach(function (dot, dotIndex) {
-                dot.classList.toggle('active', dotIndex === index);
-            });
-        }
-
-        function goTo(index) {
-            index = (index + slides.length) % slides.length;
-
-            if (index === current || isTransitioning) {
+        function replayStudyTitleHighlight() {
+            if (prefersReducedMotion) {
                 return;
             }
 
-            var outgoing = slides[current];
-            var incoming = slides[index];
-
-            isTransitioning = true;
-            setActiveDot(index);
-
-            clearTimeout(transitionTimer);
-
-            incoming.classList.remove('active');
-            incoming.style.zIndex = '3';
-            outgoing.style.zIndex = '2';
-
-            void incoming.offsetWidth;
-            incoming.classList.add('active');
-
-            transitionTimer = setTimeout(function () {
-                outgoing.classList.remove('active');
-                outgoing.style.zIndex = '';
-                incoming.style.zIndex = '';
-                current = index;
-                isTransitioning = false;
-            }, fadeDuration + 50);
-        }
-
-        function startAuto() {
-            clearInterval(timer);
-            timer = setInterval(function () {
-                goTo(current + 1);
-            }, 4400);
-        }
-
-        function resetTimer() {
-            startAuto();
-        }
-
-        function bindCarouselControl(button, step) {
-            if (!button) return;
-            var lastPointerUpAt = 0;
-
-            function handleActivate(event) {
-                if (event.type === 'click' && Date.now() - lastPointerUpAt < 350) {
-                    return;
-                }
-                if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') {
-                    return;
-                }
-                if (event.type === 'pointerup') {
-                    lastPointerUpAt = Date.now();
-                }
-                event.preventDefault();
-                goTo(current + step);
-                resetTimer();
+            var highlightWords = studyTitle.querySelectorAll('.highlight-yellow-dynamic');
+            if (!highlightWords.length) {
+                return;
             }
 
-            button.addEventListener('click', handleActivate);
-            button.addEventListener('pointerup', handleActivate);
-            button.addEventListener('keydown', handleActivate);
+            highlightWords.forEach(function (word) {
+                word.classList.remove('is-revealed');
+                void word.offsetWidth;
+                requestAnimationFrame(function () {
+                    word.classList.add('is-revealed');
+                });
+            });
         }
 
-        bindCarouselControl(prevBtn, -1);
-        bindCarouselControl(nextBtn, 1);
+        function renderStudyItem(index) {
+            var item = savoirFaireItems[index];
+            if (!item) {
+                return;
+            }
 
-        dots.forEach(function (dot) {
-            dot.addEventListener('click', function () {
-                goTo(parseInt(this.getAttribute('data-index'), 10));
-                resetTimer();
-            });
+            studyTitle.innerHTML = item.titleHtml;
+            studyContent.innerHTML = item.paragraphs.map(function (paragraph) {
+                return '<p>' + paragraph + '</p>';
+            }).join('');
+            replayStudyTitleHighlight();
+        }
+
+        function goToStudyItemWithStep(step) {
+            if (isAnimating) {
+                return;
+            }
+
+            var nextIndex = (studyIndex + step + savoirFaireItems.length) % savoirFaireItems.length;
+
+            if (prefersReducedMotion) {
+                studyIndex = nextIndex;
+                renderStudyItem(studyIndex);
+                return;
+            }
+
+            isAnimating = true;
+            studyTitle.classList.add('is-changing');
+            studyContent.classList.add('is-changing');
+
+            setTimeout(function () {
+                studyIndex = nextIndex;
+                renderStudyItem(studyIndex);
+                studyTitle.classList.remove('is-changing');
+                studyContent.classList.remove('is-changing');
+                isAnimating = false;
+            }, 180);
+        }
+
+        replayStudyTitleHighlight();
+        studyPrev.addEventListener('click', function () {
+            goToStudyItemWithStep(-1);
         });
-
-        setActiveDot(current);
-        startAuto();
-    });
-}());
+        studyNext.addEventListener('click', function () {
+            goToStudyItemWithStep(1);
+        });
+    }
+});
