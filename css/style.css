@@ -3486,6 +3486,10 @@ footer {
     text-align: justify;
 }
 
+.hp-left-copy-mobile {
+    display: none;
+}
+
 .hp-quote-figure {
     margin: 0;
     margin-top: 0.42rem;
@@ -3762,8 +3766,17 @@ footer {
     }
 
     .hp-left-copy {
-        margin-top: 0;
-        margin-left: 0;
+        display: none;
+    }
+
+    .hp-left-copy-mobile {
+        display: block;
+        margin: 0;
+        max-width: 510px;
+        font-size: clamp(1.06rem, 1.3vw, 1.18rem);
+        line-height: 1.4;
+        text-align: justify;
+        color: #171717;
     }
 
     .hp-hero-intro {
@@ -3773,7 +3786,9 @@ footer {
 
     .hp-quote-figure {
         transform: none;
-        align-self: flex-start;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
         width: min(274px, 100%);
     }
 
