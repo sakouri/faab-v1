@@ -2426,7 +2426,7 @@ footer {
         background: rgba(255, 255, 255, 0.86);
         border: 1.5px solid #111111;
         border-radius: 10px;
-        padding: 0.32rem 0.38rem;
+        padding: 0.45rem 0.48rem;
     }
 
     header:not(.scrolled) .menu-toggle span {
@@ -4142,7 +4142,7 @@ body:not(.home-page) .menu-toggle {
         background: rgba(255, 255, 255, 0.86);
         border: 1.5px solid #111111;
         border-radius: 10px;
-        padding: 0.32rem 0.38rem;
+        padding: 0.45rem 0.48rem;
     }
 
     header:not(.scrolled) .menu-toggle span {
