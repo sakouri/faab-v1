@@ -725,18 +725,18 @@ a:hover {
     font-weight: 500;
 }
 
-/* Header */
 header {
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: var(--bg-color);
+    background-color: transparent !important;
+    background: transparent !important;
     z-index: 1000;
     transition: all 0.3s ease;
     padding: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: none; /* removed grey delimitation between header and main */
+    border-bottom: none;
 }
 
 header.scrolled {
@@ -746,6 +746,8 @@ header.scrolled {
 .logo {
     text-align: center;
     padding: 0.5rem 0;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .logo a {
@@ -766,6 +768,8 @@ header.scrolled {
 nav {
     display: flex;
     justify-content: center;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 nav ul {
@@ -802,6 +806,8 @@ nav ul li a.active {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .menu-toggle span {
@@ -1859,7 +1865,8 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: transparent;
+        background: transparent !important;
+        background-color: transparent !important;
         padding: 0;
         max-height: 0;
         overflow: hidden;
@@ -2644,7 +2651,8 @@ footer {
 }
 
 .home-page header {
-    background: transparent;
+    background: transparent !important;
+    background-color: transparent !important;
     border: 0;
     box-shadow: none;
     padding-top: 0.75rem;
@@ -2660,10 +2668,14 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .home-page .logo {
     padding: 0;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .home-page .logo img {
@@ -3288,10 +3300,14 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .home-page .logo {
     padding: 0;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .home-page .logo img {
@@ -3995,6 +4011,8 @@ body:not(.home-page) header {
     text-transform: none;
     letter-spacing: 0;
     padding-top: 0.45rem;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 body:not(.home-page) header.scrolled {
@@ -4008,10 +4026,17 @@ body:not(.home-page) .header-content {
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 body:not(.home-page) .logo {
     padding: 0;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 body:not(.home-page) .logo img {
@@ -4096,7 +4121,7 @@ body:not(.home-page) .menu-toggle {
         left: 0;
         right: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: transparent;
         padding: 0;
         max-height: 0;
         overflow: hidden;
@@ -4122,6 +4147,10 @@ body:not(.home-page) .menu-toggle {
     }
 
 @media (max-width: 768px) {
+    body:not(.home-page) header {
+        position: fixed;
+    }
+
     body:not(.home-page) .header-content {
         display: flex;
         flex-direction: row;
@@ -4135,10 +4164,23 @@ body:not(.home-page) .menu-toggle {
     
     body:not(.home-page) .menu-toggle {
         position: absolute;
-        left: 0.5rem;
+        left: 0.9rem;
         top: 50%;
         transform: translateY(-50%);
-        flex: 0 0 auto;
+        z-index: 1101;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1.5px solid #111111;
+        border-radius: 10px;
+        padding: 0.32rem 0.38rem;
+    }
+    
+    body:not(.home-page) header:not(.scrolled) .menu-toggle span {
+        background-color: #ffffff;
+        border: 1px solid #111111;
+        box-sizing: border-box;
     }
     
     body:not(.home-page) .logo {
