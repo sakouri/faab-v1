@@ -3971,7 +3971,7 @@ footer {
     }
 
     .hp-hero-logo {
-        width: clamp(108px, 31vw, 146px);
+        width: clamp(216px, 62vw, 292px);
     }
 
     .hp-hero-visual {
