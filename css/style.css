@@ -2537,6 +2537,8 @@ footer {
         margin-left: 1.2rem !important;
         margin-right: 1.2rem !important;
         padding: 0.95rem 0.85rem !important;
+        width: calc(100% - 2.4rem) !important;
+        max-width: calc(100% - 2.4rem) !important;
     }
 
     .hero-section.agence-layout-section .agence-long-text p,
@@ -4124,28 +4126,25 @@ body:not(.home-page) .menu-toggle {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        position: relative;
         padding: 0.5rem 1rem;
         height: auto;
         min-height: 48px;
     }
     
+    body:not(.home-page) .menu-toggle {
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        flex: 0 0 auto;
+    }
+    
     body:not(.home-page) .logo {
         flex: 0 0 auto;
-        order: 1;
+        margin: 0;
     }
-    
-    body:not(.home-page) nav {
-        flex: 1 0 auto;
-        order: 2;
-    }
-    
-    body:not(.home-page) .menu-toggle {
-        flex: 0 0 auto;
-        order: 3;
-        justify-content: center;
-    }
-}
 
     body:not(.home-page) main {
         padding-top: 138px;
