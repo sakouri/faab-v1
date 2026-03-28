@@ -3406,6 +3406,18 @@ footer {
     padding-bottom: clamp(5.4rem, 8vw, 7.1rem);
 }
 
+.hp-hero-logo {
+    width: clamp(152px, 17vw, 228px);
+    margin: 0;
+}
+
+.hp-hero-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .hp-hero-visual {
     width: min(540px, 74vw);
     filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.08));
@@ -3446,6 +3458,29 @@ footer {
     text-align: left;
     text-wrap: normal;
     white-space: nowrap;
+}
+
+@media (min-width: 901px) {
+    .home-page main {
+        padding-top: clamp(108px, 11vw, 132px);
+    }
+
+    .hp-hero-logo {
+        margin-top: 1.9rem;
+    }
+
+    .hp-hero-visual {
+        margin-top: -2.15rem;
+    }
+
+    .hp-hero {
+        gap: 0.82rem;
+        padding-bottom: clamp(4.6rem, 6.8vw, 6.2rem);
+    }
+
+    .hp-hero-intro {
+        margin-top: -0.32rem;
+    }
 }
 
 .highlight-yellow-dynamic,
@@ -3807,6 +3842,10 @@ footer {
         padding-bottom: 4.3rem;
     }
 
+    .hp-hero-logo {
+        width: clamp(142px, 24vw, 200px);
+    }
+
     .hp-savoir,
     .hp-study,
     .hp-eco {
@@ -3929,6 +3968,10 @@ footer {
     .hp-hero {
         gap: 1.12rem;
         padding-bottom: 3.08rem;
+    }
+
+    .hp-hero-logo {
+        width: clamp(130px, 36vw, 172px);
     }
 
     .hp-hero-visual {
@@ -4055,14 +4098,18 @@ body:not(.home-page) .logo {
     background: transparent !important;
     background-color: transparent !important;
 }
-    background: transparent !important;
-    background-color: transparent !important;
-}
 
 body:not(.home-page) .logo img {
     width: clamp(58px, 5.7vw, 84px);
     height: auto;
     opacity: 0.84;
+}
+
+@media (min-width: 901px) {
+    body:not(.home-page) .logo img {
+        width: 82px;
+        max-width: 82px;
+    }
 }
 
 body:not(.home-page) nav {
