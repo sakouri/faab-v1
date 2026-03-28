@@ -507,7 +507,8 @@ a:hover {
     line-height: 1.48;
     color: #4b4b4b;
     margin-bottom: 1.3rem;
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
     max-width: none;
     margin-left: 0;
     margin-right: 0;
@@ -2038,8 +2039,14 @@ footer {
         max-width: 100%;
         margin-left: 0;
     }
+    .agence-manifesto-header,
+    .agence-manifesto-body {
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+    }
+    
     .agence-manifesto-section {
-        padding: 0 3% 2.4rem;
+        padding: 1rem 0 2.4rem 0 !important;
     }
     .agence-manifesto-header {
         grid-template-columns: 1fr;
@@ -2466,18 +2473,27 @@ footer {
 
     .hero-section.agence-layout-section .agence-long-text {
         margin: 0 !important;
-        max-width: none !important;
+        max-width: 100% !important;
         width: 100% !important;
+        padding: 0 1.2rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .hero-section.agence-layout-section .agence-long-text p {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
     }
 
     .agence-programmes-section,
     .agence-manifesto-section {
         display: block !important;
         width: 100% !important;
-        max-width: none !important;
+        max-width: 100% !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
         margin: 0 !important;
+        overflow: hidden !important;
+        overflow-x: hidden !important;
     }
 
     .agence-programmes-section {
@@ -2501,19 +2517,25 @@ footer {
 
     .agence-programmes-flow,
     .agence-programmes-text {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+    }
+
+    .agence-programmes-image {
+        padding: 0 1.2rem !important;
     }
 
     .agence-programmes-image img {
         width: 100% !important;
         height: auto !important;
         display: block !important;
-        margin: 0.7rem 0 1rem !important;
+        margin: 0.7rem auto 1rem !important;
     }
 
     .agence-theory-box {
         margin-top: 0.8rem !important;
+        margin-left: 1.2rem !important;
+        margin-right: 1.2rem !important;
         padding: 0.95rem 0.85rem !important;
     }
 
@@ -2525,7 +2547,8 @@ footer {
         font-size: 0.9rem !important;
         line-height: 1.5 !important;
         margin-bottom: 0.95rem !important;
-        text-align: left !important;
+        text-align: justify !important;
+        text-justify: inter-word !important;
         text-indent: 0 !important;
         padding-left: 0 !important;
         margin-left: 0 !important;
@@ -2555,6 +2578,8 @@ footer {
     .content-section .agence-theory-box p {
         font-size: 0.88rem !important;
         line-height: 1.48 !important;
+        text-align: justify !important;
+        text-justify: inter-word !important;
     }
 }
 
@@ -3828,14 +3853,14 @@ footer {
     }
 
     .hp-eco-images {
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
     }
 
     .hp-eco-image-top,
     .hp-eco-image-bottom {
         width: min(320px, 100%);
-        margin-right: 0;
-        margin-left: 0;
+        margin: 0 auto;
     }
 }
 
@@ -4040,21 +4065,87 @@ body:not(.home-page) .menu-toggle {
     display: none;
 }
 
+@media (max-width: 768px) {
+    body:not(.home-page) .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        margin-right: 1rem;
+    }
+    
+    body:not(.home-page) .menu-toggle span {
+        width: 25px;
+        height: 2px;
+        background-color: var(--text-color);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+}
+
 @media (max-width: 900px) {
     body:not(.home-page) .header-content {
         width: min(1200px, calc(100% - 38px));
     }
 
+    body:not(.home-page) nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 100;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    body:not(.home-page) nav.active {
+        max-height: 300px;
+    }
+
     body:not(.home-page) nav ul {
         gap: 0.75rem;
         flex-wrap: wrap;
+        flex-direction: column;
+        padding: 1rem 0;
     }
 
-    body:not(.home-page) nav ul li a {
-        min-width: 112px;
-        padding: 0.45rem 1.1rem;
-        font-size: 0.83rem;
+    body:not(.home-page) nav ul li {
+        margin: 0;
+        text-align: center;
     }
+
+@media (max-width: 768px) {
+    body:not(.home-page) .header-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        height: auto;
+        min-height: 48px;
+    }
+    
+    body:not(.home-page) .logo {
+        flex: 0 0 auto;
+        order: 1;
+    }
+    
+    body:not(.home-page) nav {
+        flex: 1 0 auto;
+        order: 2;
+    }
+    
+    body:not(.home-page) .menu-toggle {
+        flex: 0 0 auto;
+        order: 3;
+        justify-content: center;
+    }
+}
 
     body:not(.home-page) main {
         padding-top: 138px;
