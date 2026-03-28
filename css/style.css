@@ -2397,13 +2397,13 @@ footer {
     }
 }
 
-/* Mobile-only refinements: left white burger + slightly smaller long texts */
+/* Mobile navbar unified (768px) - applies to ALL pages */
 @media (max-width: 768px) {
-    .home-page header {
+    header {
         position: fixed;
     }
 
-    .home-page .header-content {
+    .header-content {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -2414,13 +2414,13 @@ footer {
         min-height: 48px;
     }
 
-    .home-page header .menu-toggle {
+    header .menu-toggle {
         position: absolute;
         left: 0.9rem;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1101;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         background: rgba(255, 255, 255, 0.86);
@@ -2429,18 +2429,18 @@ footer {
         padding: 0.32rem 0.38rem;
     }
 
-    .home-page header:not(.scrolled) .menu-toggle span {
+    header:not(.scrolled) .menu-toggle span {
         background-color: #ffffff;
         border: 1px solid #111111;
         box-sizing: border-box;
     }
 
-    .home-page .logo {
+    .logo {
         flex: 0 0 auto;
         margin: 0;
     }
 
-    .home-page main {
+    main {
         padding-top: 138px;
     }
 
@@ -4110,24 +4110,6 @@ body:not(.home-page) main {
 
 body:not(.home-page) .menu-toggle {
     display: none;
-}
-
-@media (max-width: 768px) {
-    body:not(.home-page) .menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 0.5rem 0;
-        margin-right: 1rem;
-    }
-    
-    body:not(.home-page) .menu-toggle span {
-        width: 25px;
-        height: 2px;
-        background-color: var(--text-color);
-        margin: 3px 0;
-        transition: all 0.3s ease;
-    }
 }
 
 /* Navbar tablet view (900px and below) - applies to all pages */
