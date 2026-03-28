@@ -2403,6 +2403,17 @@ footer {
         position: fixed;
     }
 
+    .home-page .header-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0.5rem 1rem;
+        height: auto;
+        min-height: 48px;
+    }
+
     .home-page header .menu-toggle {
         position: absolute;
         left: 0.9rem;
@@ -2422,6 +2433,15 @@ footer {
         background-color: #ffffff;
         border: 1px solid #111111;
         box-sizing: border-box;
+    }
+
+    .home-page .logo {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .home-page main {
+        padding-top: 138px;
     }
 
     .agence-long-text p,
@@ -4110,48 +4130,14 @@ body:not(.home-page) .menu-toggle {
     }
 }
 
+/* Navbar tablet view (900px and below) - applies to all pages */
 @media (max-width: 900px) {
-    body:not(.home-page) .header-content {
-        width: min(1200px, calc(100% - 38px));
-    }
-
-    body:not(.home-page) nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: transparent;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        z-index: 100;
-        border-top: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    body:not(.home-page) nav.active {
-        max-height: 300px;
-    }
-
-    body:not(.home-page) nav ul {
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        flex-direction: column;
-        padding: 1rem 0;
-    }
-
-    body:not(.home-page) nav ul li {
-        margin: 0;
-        text-align: center;
-    }
-
-@media (max-width: 768px) {
-    body:not(.home-page) header {
+    header {
         position: fixed;
     }
 
-    body:not(.home-page) .header-content {
+    .header-content {
+        width: min(1200px, calc(100% - 38px));
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -4161,14 +4147,14 @@ body:not(.home-page) .menu-toggle {
         height: auto;
         min-height: 48px;
     }
-    
-    body:not(.home-page) .menu-toggle {
+
+    .menu-toggle {
         position: absolute;
         left: 0.9rem;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1101;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         background: rgba(255, 255, 255, 0.86);
@@ -4176,40 +4162,75 @@ body:not(.home-page) .menu-toggle {
         border-radius: 10px;
         padding: 0.32rem 0.38rem;
     }
-    
-    body:not(.home-page) header:not(.scrolled) .menu-toggle span {
+
+    header:not(.scrolled) .menu-toggle span {
         background-color: #ffffff;
         border: 1px solid #111111;
         box-sizing: border-box;
     }
-    
-    body:not(.home-page) .logo {
+
+    .logo {
         flex: 0 0 auto;
         margin: 0;
     }
 
-    body:not(.home-page) main {
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: transparent !important;
+        background-color: transparent !important;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 100;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    nav.active {
+        max-height: 300px;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    main {
         padding-top: 138px;
     }
 }
 
 @media (max-width: 640px) {
-    body:not(.home-page) .header-content {
+    .header-content {
         width: calc(100% - 26px);
     }
 
-    body:not(.home-page) nav ul {
+    nav ul {
         gap: 0.5rem;
         padding-top: 0.15rem;
     }
 
-    body:not(.home-page) nav ul li a {
+    nav ul li a {
         min-width: 96px;
         padding: 0.42rem 0.88rem;
         font-size: 0.78rem;
     }
 
-    body:not(.home-page) main {
+    main {
         padding-top: 134px;
     }
 }
+
+@media (max-width: 640px) {
+    body:not(.home-page) .header-content {
