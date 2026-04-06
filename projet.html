@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Réalisations | FAAB Architecte</title>
+    <title>Projet | FAAB Architecte</title>
     <link rel="stylesheet" href="./css/style.css?v=20260329">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Inline SVG favicon (triangle logo) -->
     <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15 45 L15 20 L25 10 L35 20 L35 45" fill="none" stroke="%23e8b1aa" stroke-width="2.5" stroke-linejoin="miter"/></svg>'>
 </head>
 <body>
@@ -36,24 +35,24 @@
     </header>
 
     <main>
-        <!-- Filters Section -->
-        <section class="realisations-filters-section">
-            <div class="realisations-filters-container">
-                <div class="realisations-filters">
-                    <button class="filter-btn active" data-filter="tout">Tout</button>
-                    <button class="filter-btn" data-filter="habitat">Habitat</button>
-                    <button class="filter-btn" data-filter="equipements">Équipements</button>
-                    <button class="filter-btn" data-filter="tertiaire">Tertiaire</button>
-                    <button class="filter-btn" data-filter="urbanisme">Urbanisme</button>
-                </div>
-            </div>
-        </section>
+        <section class="project-page-section" id="projectPageContent">
+            <div class="project-page-container">
+                <div class="project-page-grid">
+                    <div class="project-media-block fade-in-up" aria-label="Carrousel d'images du projet">
+                        <div class="project-carousel-frame">
+                            <button class="project-carousel-btn project-carousel-prev" id="projectPrev" aria-label="Image precedente">&#8249;</button>
+                            <img id="projectCarouselImage" src="" alt="Apercu du projet">
+                            <button class="project-carousel-btn project-carousel-next" id="projectNext" aria-label="Image suivante">&#8250;</button>
+                        </div>
+                        <div class="project-carousel-dots" id="projectDots" aria-label="Navigation du carrousel"></div>
+                    </div>
 
-        <!-- Realizations Grid -->
-        <section class="realisations-section">
-            <div class="realisations-container">
-                <div class="realisations-grid" id="realisationsGrid">
-                    <!-- Cards will be inserted here by JavaScript -->
+                    <article class="project-copy-block fade-in-up">
+                        <p class="project-kicker" id="projectLocation"></p>
+                        <h1 class="project-title" id="projectTitle"></h1>
+                        <p class="project-description" id="projectDescription"></p>
+                        <p class="project-description" id="projectDescription2"></p>
+                    </article>
                 </div>
             </div>
         </section>
