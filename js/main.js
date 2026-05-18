@@ -142,9 +142,23 @@ document.addEventListener('DOMContentLoaded', function () {
     var studyContent = document.getElementById('hp-study-content');
     var studyPrev = document.getElementById('hp-study-prev');
     var studyNext = document.getElementById('hp-study-next');
+    var studyBack = document.getElementById('hp-study-back');
 
     if (studyTitle && studyContent && studyNext && studyPrev) {
         var savoirFaireItems = [
+            {
+                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">N</span>OS MISSIONS</span>",
+                isIntro: true,
+                paragraphs: [
+                    "<div class=\"hp-study-intro-list\">" +
+                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"1\">> <span class=\"hp-study-intro-title\">ETUDES DE FAISABILITE</span></a><br>" +
+                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"2\">> <span class=\"hp-study-intro-title\">ETUDE ARCHITECTURALE ET URBAINE</span></a><br>" +
+                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"3\">> <span class=\"hp-study-intro-title\">EXECUTION</span></a><br>" +
+                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"4\">> <span class=\"hp-study-intro-title\">ASSISTANCE A MAITRISE D'OUVRAGE</span></a><br>" +
+                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"5\">> <span class=\"hp-study-intro-title\">AUDITS & EXPERTISE</span></a>" +
+                    "</div>"
+                ]
+            },
             {
                 titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">É</span>tude de faisabilité</span>",
                 paragraphs: [
@@ -181,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ]
             },
             {
-                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">E</span>xpertise</span>",
+                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">A</span>UDITS & EXPERTISE</span>",
                 paragraphs: [
                     "FAAB Architecte intervient en qualité d'expert pour la réalisation de diagnostics pluri ou monodisciplinaires (programmatique, spatial, bioclimatique, technique et constructif).",
                     "Notre démarche vise à analyser les problématiques que vous rencontrez notamment avec votre bien, ou en tant que tiers, afin de vous prodiguer les conseils et apports nécessaires à la résorption de vos questionnements ou événements nuisibles."
@@ -222,9 +236,24 @@ document.addEventListener('DOMContentLoaded', function () {
             nextTitle.innerHTML = item.titleHtml;
             studyTitle.replaceWith(nextTitle);
             studyTitle = nextTitle;
-            studyContent.innerHTML = item.paragraphs.map(function (paragraph) {
-                return '<p>' + paragraph + '</p>';
-            }).join('');
+            
+            if (item.isIntro) {
+                studyContent.innerHTML = item.paragraphs[0];
+            } else {
+                studyContent.innerHTML = item.paragraphs.map(function (paragraph) {
+                    return '<p>' + paragraph + '</p>';
+                }).join('');
+            }
+            
+            // Update back button visibility
+            if (studyBack) {
+                if (index === 0) {
+                    studyBack.classList.remove('visible');
+                } else {
+                    studyBack.classList.add('visible');
+                }
+            }
+            
             replayStudyTitleHighlight();
         }
 
@@ -255,12 +284,62 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         replayStudyTitleHighlight();
+        renderStudyItem(0);
         studyPrev.addEventListener('click', function () {
             goToStudyItemWithStep(-1);
         });
         studyNext.addEventListener('click', function () {
             goToStudyItemWithStep(1);
         });
+
+        // Handle intro links with event delegation
+        studyContent.addEventListener('click', function (e) {
+            if (e.target.closest('.hp-study-intro-link')) {
+                var link = e.target.closest('.hp-study-intro-link');
+                e.preventDefault();
+                var targetIndex = parseInt(link.getAttribute('data-index'), 10);
+                if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex < savoirFaireItems.length) {
+                    if (prefersReducedMotion) {
+                        studyIndex = targetIndex;
+                        renderStudyItem(studyIndex);
+                    } else {
+                        isAnimating = true;
+                        studyTitle.classList.add('is-changing');
+                        studyContent.classList.add('is-changing');
+
+                        setTimeout(function () {
+                            studyIndex = targetIndex;
+                            renderStudyItem(studyIndex);
+                            studyTitle.classList.remove('is-changing');
+                            studyContent.classList.remove('is-changing');
+                            isAnimating = false;
+                        }, 180);
+                    }
+                }
+            }
+        });
+
+        // Handle back button click
+        if (studyBack) {
+            studyBack.addEventListener('click', function () {
+                if (prefersReducedMotion) {
+                    studyIndex = 0;
+                    renderStudyItem(studyIndex);
+                } else {
+                    isAnimating = true;
+                    studyTitle.classList.add('is-changing');
+                    studyContent.classList.add('is-changing');
+
+                    setTimeout(function () {
+                        studyIndex = 0;
+                        renderStudyItem(studyIndex);
+                        studyTitle.classList.remove('is-changing');
+                        studyContent.classList.remove('is-changing');
+                        isAnimating = false;
+                    }, 180);
+                }
+            });
+        }
     }
 
     // ========== REALISATIONS PAGE LOGIC ==========
