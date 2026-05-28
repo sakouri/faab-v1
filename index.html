@@ -10,7 +10,44 @@
 
     <title>Accueil | FAAB Architecte</title>
 
-    <link rel="stylesheet" href="css/style.css?v=20260331">
+    <link rel="stylesheet" href="css/style.css?v=20260520">
+
+    <style>
+        @media (min-width: 1024px) {
+            .home-page .header-content {
+                width: min(1320px, calc(100vw - 6cm));
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .home-page nav ul {
+                gap: 0.72rem;
+            }
+
+            .home-page nav ul li {
+                margin: 0;
+            }
+
+            .home-page .hp-hero-inner.desktop-page-container {
+                width: min(1320px, calc(100vw - 6cm));
+            }
+
+            .home-page .hp-hero-visual {
+                width: 100%;
+                max-width: none;
+            }
+
+            .home-page .logo {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .home-page nav {
+                width: auto;
+                margin-left: auto;
+            }
+        }
+    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -36,7 +73,7 @@
 
     <header>
 
-        <div class="header-content">
+        <div class="header-content desktop-page-container">
 
             <div class="logo">
 
@@ -84,7 +121,7 @@
 
         <section class="hp-hero">
 
-            <div class="hp-hero-inner hp-shell stagger-group">
+            <div class="hp-hero-inner hp-shell desktop-page-container stagger-group">
 
                 <figure class="hp-hero-logo fade-in-up" aria-label="Logo FAAB Architecte">
 
@@ -120,11 +157,17 @@
 
                     <h2 class="hp-display-title"><span class="hp-display-prefix"><span class="hp-title-initial">N</span>os</span> <span class="highlight-yellow-dynamic">savoirs faire</span></h2>
 
-                    <p class="hp-right-copy">
+                    <div class="hp-right-copy hp-savoir-text-limited">
 
-                        FAAB Architecte est une agence d'architecture pluridisciplinaire familiale à taille humaine. FAAB Architecte intervient auprès de nos clients en mission de maîtrise d'œuvre partielle et complète de manière multi-scalaire et multi-standing.
+                        <p>FAAB Architecte est une agence d’architecture pluridisciplinaire familiale à taille humaine.</p>
 
-                    </p>
+                        <p>L’agence conçoit et suit tous types d’opérations neuves ou en réhabilitation, sur l’ensemble des secteurs du logement, des équipements publics, du commerce, des bureaux ainsi que de l’hôtellerie.</p>
+
+                        <p>Notre expertise tend à proposer à l’ensemble de nos partenaires et des territoires, des projets viables tant techniquement qu’économiquement, permettant la transformation d’espaces à destination de nouveaux usages réfléchis, optimisés et engagés dans le respect de l’environnement et de la décarbonation.</p>
+
+                        <p>L’agence accompagne de manière multi-scalaire et multi-standing une clientèle variée composée de promoteurs immobiliers, bailleurs sociaux, collectivités, d’entreprises, d’associations et d’acteurs du développement local.</p>
+
+                    </div>
 
 
 
@@ -158,14 +201,9 @@
                     </p>
                     <p class="hp-left-copy">
 
-                        Nous analysons l'ensemble de vos besoins, vos contraintes ainsi que vos ambitions afin de définir un cadre d'intervention pertinent, viable.
+                        Nous analysons l’ensemble de vos besoins, vos contraintes ainsi que vos ambitions afin de définir un cadre d’intervention pertinent, viable.
 
                     </p>
-
-                </div>
-
-                <div class="hp-savoir-body fade-in-up">
-
 
                     <p class="hp-left-copy">
 
@@ -175,13 +213,13 @@
 
                     <p class="hp-left-copy">
 
-                        Qu'il s'agisse d'études en amont, d'audits fonciers et bâtimentaires, de conception architecturale, d'assistance aux démarches administratives ou de suivi d'exécution, nous mobilisons les compétences nécessaires pour garantir la cohérence, la qualité et la performance de votre projet.
+                        Qu’il s’agisse d’études en amont, d’audits fonciers et bâtimentaires, de conception architecturale, d’assistance aux démarches administratives ou de suivi d’exécution, nous mobilisons les compétences nécessaires pour garantir la cohérence, la qualité et la performance de votre projet.
 
                     </p>
 
                     <p class="hp-left-copy">
 
-                        Cette flexibilité nous permet d'intervenir de manière ciblée ou complète, en assurant une continuité et une maîtrise optimale à chaque phase du processus de maîtrise d'œuvre.
+                        Cette flexibilité nous permet d’intervenir de manière ciblée ou complète, en assurant une continuité et une maîtrise optimale à chaque phase du processus de maîtrise d’œuvre.
 
                     </p>
 
@@ -204,12 +242,6 @@
             <button class="hp-study-nav-btn hp-study-next" id="hp-study-next" type="button" aria-label="Afficher le savoir-faire suivant">
 
                 <span aria-hidden="true">&#8594;</span>
-
-            </button>
-
-            <button class="hp-study-nav-btn hp-study-back" id="hp-study-back" type="button" aria-label="Retour aux missions">
-
-                <span aria-hidden="true">← Nos missions</span>
 
             </button>
 

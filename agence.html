@@ -1,16 +1,1143 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agence | FAAB Architecte</title>
-    <link rel="stylesheet" href="./css/style.css?v=20260331">
+    <link rel="stylesheet" href="./css/style.css?v=20260526">
+    <style>
+        body.agence-page .agence-pair-section {
+            width: 100%;
+            padding: 2.5rem 0 0;
+        }
+
+        body.agence-page .agence-highlight-dynamic {
+            background-repeat: no-repeat;
+            background-position: 0 85%;
+            background-size: 0 68%;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            transition: background-size 0.8s cubic-bezier(0.2, 0.75, 0.22, 1);
+            background-image: linear-gradient(transparent 28%, #f3d2cd 28%);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.03em;
+            padding: 0 0.06em;
+        }
+
+        body.agence-page .agence-pair-wrapper {
+            width: min(1320px, calc(100vw - 24px));
+            margin: 0;
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        body.agence-page .agence-pair-media img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        body.agence-page .agence-pair-copy,
+        body.agence-page .agence-pair-card {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        body.agence-page .agence-pair-copy {
+            color: #000;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        body.agence-page .agence-pair-copy p {
+            margin: 0 0 1rem;
+        }
+
+        body.agence-page .agence-presentation-section {
+            width: 100%;
+            margin: 0;
+        }
+
+        body.agence-page .agence-presentation-wrapper {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        body.agence-page .agence-presentation-wrapper .hero-left img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        body.agence-page .agence-presentation-wrapper .hero-right {
+            width: 100%;
+        }
+
+        body.agence-page .agence-pair-card {
+            background: rgba(232, 177, 170, 0.06);
+            border: 3px solid rgb(230, 139, 127);
+            border-radius: 0;
+            padding: 1.5rem;
+            color: #000;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        body.agence-page .agence-manifesto-title .agence-manifesto-emphasis {
+            display: inline;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 0.12em;
+        }
+
+        body.agence-page .agence-manifesto-title-band.visible .agence-highlight-dynamic,
+        body.agence-page .agence-team-heading.visible .agence-highlight-dynamic,
+        body.agence-page .fade-in-up.visible .agence-highlight-dynamic {
+            background-size: 100% 68% !important;
+        }
+
+        body.agence-page .agence-encadre-force {
+            background-color: rgba(232, 177, 170, 0.06) !important;
+            border: 3px solid #d06354 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        body.agence-page .agence-encadre-force > * {
+            background: transparent !important;
+        }
+
+        body.agence-page .agence-manifesto-title-band.visible .agence-highlight-dynamic.is-revealed,
+        body.agence-page .agence-team-heading.visible .agence-highlight-dynamic.is-revealed {
+            background-size: 100% 68% !important;
+        }
+
+        body.agence-page .agence-manifesto-title .agence-highlight-dynamic.is-revealed,
+        body.agence-page .agence-team-title .agence-highlight-dynamic.is-revealed {
+            background-size: 100% 68% !important;
+        }
+
+        @media (min-width: 901px) {
+            body.agence-page .header-content {
+                width: 100%;
+                margin: 0;
+            }
+
+            body.agence-page header .logo img {
+                width: clamp(92px, 8.5vw, 130px);
+                max-width: none;
+                height: auto;
+            }
+
+            body.agence-page nav ul {
+                gap: 0.9rem;
+            }
+
+            body.agence-page nav ul li {
+                margin: 0;
+            }
+
+            body.agence-page nav ul li a {
+                padding: 0.38rem 0.6rem;
+                font-size: 0.94rem;
+                letter-spacing: 0.06em;
+                min-width: 0;
+            }
+
+            body.agence-page .hero-container.agence-hero-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: clamp(1rem, 1.8vw, 1.6rem);
+                width: 100%;
+                margin: 0;
+                padding: 0.5rem 0 1.5rem;
+            }
+
+            body.agence-page .hero-section.agence-layout-section .hero-container {
+                padding: 0.5rem 0 1.5rem !important;
+            }
+
+            body.agence-page .hero-left {
+                margin-left: 0;
+                flex: 0 0 min(360px, 31vw);
+                max-width: 360px;
+            }
+
+            body.agence-page .hero-right {
+                flex: 1 1 540px;
+                align-items: flex-start;
+                padding: 0;
+            }
+
+            body.agence-page .agence-intro-copy {
+                max-width: none;
+                margin: 0;
+                color: #000;
+                font-size: 0.92rem;
+                line-height: 1.55;
+                text-align: left;
+                width: 100%;
+            }
+
+            body.agence-page .agence-intro-copy p {
+                color: #000;
+                margin: 0 0 1rem;
+                max-width: 100%;
+            }
+
+            body.agence-page .agence-intro-copy strong {
+                font-weight: 700;
+            }
+
+            body.agence-page .agence-presentation-wrapper {
+                display: grid;
+                grid-template-columns: minmax(320px, 340px) minmax(0, 1fr);
+                gap: clamp(1rem, 1.8vw, 1.6rem);
+                align-items: stretch;
+            }
+
+            body.agence-page .agence-presentation-wrapper .hero-left {
+                margin-left: 0;
+                max-width: none;
+                align-self: center;
+            }
+
+            body.agence-page .agence-presentation-wrapper .hero-right {
+                display: flex;
+                align-items: center;
+                padding: 0;
+            }
+
+            body.agence-page .agence-pair-section {
+                width: 100%;
+                margin: 2.75rem auto 0;
+            }
+
+            body.agence-page .agence-pair-wrapper {
+                display: grid;
+                grid-template-columns: minmax(320px, 340px) minmax(0, 1fr);
+                gap: clamp(1rem, 1.8vw, 1.6rem);
+                align-items: stretch;
+            }
+
+            body.agence-page .agence-pair-media {
+                width: 100%;
+                height: 100%;
+            }
+
+            body.agence-page .agence-pair-media img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            body.agence-page .agence-pair-copy {
+                max-width: none;
+                margin-left: auto;
+                margin-right: auto;
+                align-self: center;
+                font-size: 0.93rem;
+                line-height: 1.58;
+                text-align: left;
+            }
+
+            body.agence-page .agence-pair-copy p {
+                margin: 0 0 1rem;
+            }
+
+            body.agence-page .agence-pair-card {
+                background: rgba(232, 177, 170, 0.12);
+                border: 1px solid rgba(232, 177, 170, 0.18);
+                border-radius: 16px;
+                padding: clamp(1.5rem, 2.4vw, 2.2rem);
+                font-size: 0.93rem;
+                line-height: 1.58;
+                align-self: center;
+            }
+
+            body.agence-page .agence-pair-card p {
+                margin: 0;
+            }
+
+            body.agence-page .agence-pair-secondary {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+        <style>
+                @media screen and (min-width: 1024px) {
+                    .agence-align-wrapper {
+                        width: calc(100vw - 240px);
+                        max-width: 1480px;
+                        margin-left: 240px;
+                        margin-right: auto;
+                    }
+
+                    .agence-align-section {
+                        display: grid;
+                        grid-template-columns: 420px minmax(650px, 1fr);
+                        column-gap: 120px;
+                        align-items: start;
+                        width: 100%;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+
+                    .agence-left {
+                        width: 420px;
+                        margin-left: 0;
+                        padding-left: 0;
+                    }
+
+                    .agence-left img {
+                        display: block;
+                        width: 100%;
+                        max-width: 420px;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+
+                    .agence-manifesto-stack {
+                        width: 420px;
+                        margin-left: 0;
+                        padding-left: 0;
+                    }
+
+                    .agence-manifesto-stack .agence-manifesto-media,
+                    .agence-manifesto-stack .agence-manifesto-note {
+                        margin-left: 0;
+                    }
+
+                    .agence-right {
+                        width: 100%;
+                        max-width: none;
+                        margin-left: 0;
+                        margin-right: 0;
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+
+                    .agence-right p,
+                    .agence-right div,
+                    .agence-right article {
+                        max-width: none;
+                    }
+
+                    .agence-manifesto-title-band {
+                        width: 100%;
+                    }
+
+                    .agence-manifesto-title-band .agence-manifesto-title {
+                        display: block;
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                    }
+
+                    .agence-manifesto-title-band .agence-manifesto-emphasis {
+                        display: inline;
+                        background: #f5c7cf;
+                        -webkit-box-decoration-break: clone;
+                        box-decoration-break: clone;
+                        padding: 0 0.12em;
+                    }
+
+                    .agence-pair-wrapper,
+                    .agence-manifesto-split {
+                        display: grid !important;
+                        grid-template-columns: 420px minmax(650px, 1fr) !important;
+                        column-gap: 120px !important;
+                        align-items: start !important;
+                        width: 100% !important;
+                        margin-left: 0 !important;
+                        margin-right: 0 !important;
+                    }
+
+                    .agence-pair-media,
+                    .agence-manifesto-stack {
+                        width: 420px !important;
+                        margin-left: 0 !important;
+                        padding-left: 0 !important;
+                    }
+
+                    .agence-pair-media img,
+                    .agence-manifesto-stack img {
+                        display: block !important;
+                        width: 100% !important;
+                        max-width: 420px !important;
+                        margin-left: 0 !important;
+                        margin-right: 0 !important;
+                    }
+
+                    .agence-pair-card,
+                    .agence-manifesto-note {
+                        background: rgba(232, 177, 170, 0.06) !important;
+                        border: 3px solid #d06354 !important;
+                        border-radius: 0 !important;
+                        box-sizing: border-box;
+                    }
+
+                    .agence-pair-card {
+                        background: rgba(232, 177, 170, 0.06) !important;
+                        border: 3px solid #d06354 !important;
+                        border-radius: 0 !important;
+                    }
+                }
+        </style>
+    <style>
+        @media (min-width: 800px) {
+            body.agence-page .agence-pair-card {
+                background: rgba(232, 177, 170, 0.06) !important;
+            }
+
+            body.agence-page .agence-manifesto-split {
+                display: grid !important;
+                grid-template-columns: minmax(280px, 340px) minmax(0, 1fr) !important;
+                column-gap: clamp(1rem, 1.8vw, 1.6rem) !important;
+                align-items: start !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            body.agence-page .agence-manifesto-stack {
+                width: min(340px, 100%) !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.05rem !important;
+                padding-left: 0 !important;
+            }
+
+            body.agence-page .agence-manifesto-media,
+            body.agence-page .agence-manifesto-note {
+                width: 100% !important;
+            }
+
+            body.agence-page .agence-manifesto-emphasis.agence-highlight-dynamic.is-revealed,
+            body.agence-page .agence-team-emphasis.agence-highlight-dynamic.is-revealed {
+                background-size: 100% 68% !important;
+                animation: agenceHighlightReveal 0.8s cubic-bezier(0.2, 0.75, 0.22, 1) forwards;
+            }
+
+            body.agence-page .agence-manifesto-note,
+            body.agence-page .agence-encadre-force {
+                background: rgba(232, 177, 170, 0.06) !important;
+                background-color: rgba(232, 177, 170, 0.06) !important;
+            }
+
+            body.agence-page .agence-manifesto-title-band .agence-manifesto-title,
+            body.agence-page .agence-team-heading .agence-team-title {
+                width: fit-content;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            body.agence-page .agence-manifesto-title-band .agence-manifesto-emphasis,
+            body.agence-page .agence-team-emphasis {
+                font-size: 1.3em;
+            }
+
+            body.agence-page .agence-team-section {
+                width: min(1320px, calc(100vw - 6cm)) !important;
+                box-sizing: border-box;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding: 3.2rem 0 4rem !important;
+            }
+
+            body.agence-page .agence-team-list {
+                width: 100% !important;
+            }
+
+            body.agence-page .agence-profile {
+                display: grid !important;
+                grid-template-columns: minmax(180px, 200px) minmax(0, 1fr) !important;
+                gap: clamp(1rem, 1.8vw, 1.6rem) !important;
+                align-items: start !important;
+            }
+
+            body.agence-page .agence-profile-image {
+                width: min(200px, 100%) !important;
+                max-width: none !important;
+            }
+
+            body.agence-page .agence-profile-image img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            body.agence-page .agence-profile-content {
+                max-width: none !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+
+        @keyframes agenceHighlightReveal {
+            from {
+                background-size: 0% 68%;
+            }
+
+            to {
+                background-size: 100% 68%;
+            }
+        }
+    </style>
+    <style>
+        @media (max-width: 700px) {
+            body.agence-page .agence-presentation-wrapper,
+            body.agence-page .agence-pair-wrapper,
+            body.agence-page .agence-manifesto-split {
+                display: block !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
+
+            body.agence-page .agence-presentation-wrapper .hero-left,
+            body.agence-page .agence-pair-media,
+            body.agence-page .agence-manifesto-stack {
+                width: min(100%, 340px) !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                transform: none !important;
+            }
+
+            body.agence-page .agence-presentation-wrapper .hero-right,
+            body.agence-page .agence-pair-copy,
+            body.agence-page .agence-pair-card,
+            body.agence-page .agence-manifesto-content {
+                width: 100% !important;
+                max-width: none !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+    </style>
+    <style>
+        body.agence-page .header-content {
+            width: min(1320px, calc(100vw - 6cm));
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0;
+            box-sizing: border-box;
+            padding: 0.75rem 1rem;
+        }
+
+        body.agence-page .logo {
+            padding: 0;
+        }
+
+        body.agence-page header .logo img {
+            width: clamp(92px, 8.5vw, 130px);
+            height: auto;
+            max-width: none;
+        }
+
+        body.agence-page nav {
+            width: auto;
+            justify-content: flex-end;
+        }
+
+        body.agence-page nav ul {
+            gap: 0.85rem;
+            padding: 0.8rem 0;
+        }
+
+        body.agence-page nav ul li {
+            margin: 0;
+        }
+
+        body.agence-page nav ul li a {
+            padding: 0.38rem 0.6rem;
+            font-size: 0.94rem;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        body.agence-page .agence-container {
+            width: min(1320px, calc(100vw - 6cm));
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        body.agence-page .agence-section {
+            width: 100%;
+        }
+
+        body.agence-page .agence-section-intro {
+            padding: 2.5rem 0 5.75rem;
+        }
+
+        body.agence-page .agence-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+            column-gap: clamp(2.75rem, 4vw, 5.25rem);
+            align-items: center;
+        }
+
+        body.agence-page .agence-intro-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        body.agence-page .agence-intro-image {
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        body.agence-page .agence-intro-text {
+            width: min(100%, 720px);
+            justify-self: end;
+            color: #000;
+            font-size: 0.92rem;
+            line-height: 1.56;
+            text-align: left;
+        }
+
+        body.agence-page .agence-intro-text p {
+            margin: 0 0 1rem;
+        }
+
+        body.agence-page .agence-section-presentation {
+            padding: clamp(7rem, 8vw, 9rem) 0 clamp(5rem, 6vw, 6.5rem);
+        }
+
+        body.agence-page .agence-presentation-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+            column-gap: clamp(2.75rem, 4vw, 5.25rem);
+            align-items: start;
+        }
+
+        body.agence-page .agence-presentation-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        body.agence-page .agence-presentation-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        body.agence-page .agence-presentation-text {
+            width: min(100%, 700px);
+            justify-self: end;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: #000;
+            font-size: 0.93rem;
+            line-height: 1.58;
+            text-align: justify;
+        }
+
+        body.agence-page .agence-presentation-text p {
+            margin: 0;
+        }
+
+        body.agence-page .agence-presentation-card {
+            background: rgba(232, 177, 170, 0.06);
+            border: 3px solid #d06354;
+            border-radius: 0;
+            padding: 1.3rem 1.2rem;
+            box-sizing: border-box;
+        }
+
+        body.agence-page .agence-presentation-card p {
+            margin: 0;
+        }
+
+        body.agence-page .agence-section-approche {
+            padding: clamp(6rem, 7vw, 8.5rem) 0 clamp(5rem, 6vw, 6.5rem);
+        }
+
+        body.agence-page .agence-approche-title-band {
+            margin: 0 0 6.15rem;
+            text-align: center;
+        }
+
+        body.agence-page .agence-approche-title {
+            margin: 0;
+            text-align: center;
+            font-family: 'Manrope', 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+            line-height: 1.06;
+            letter-spacing: -0.01em;
+        }
+
+        body.agence-page .agence-approche-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+            column-gap: clamp(2.75rem, 4vw, 5.25rem);
+            align-items: start;
+        }
+
+        body.agence-page .agence-approche-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        body.agence-page .agence-approche-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        body.agence-page .agence-approche-note {
+            background: rgba(232, 177, 170, 0.06);
+            border: 3px solid #d06354;
+            border-radius: 0;
+            padding: 1.3rem 1.2rem;
+            box-sizing: border-box;
+        }
+
+        body.agence-page .agence-presentation-card,
+        body.agence-page .agence-approche-note,
+        body.agence-page .agence-encadre-force {
+        border-color: rgb(208, 99, 84) !important;
+        }
+
+        body.agence-page .agence-approche-note p {
+            margin: 0;
+        }
+
+        body.agence-page .agence-approche-keyword {
+            color: #e8b1aa;
+            font-weight: 700;
+        }
+
+        body.agence-page .agence-approche-text,
+        body.agence-page .agence-approche-text p,
+        body.agence-page .agence-approche-text .accent {
+            color: #000 !important;
+        }
+
+body.agence-page .agence-approche-title .agence-approche-emphasis.agence-highlight-dynamic,
+body.agence-page .agence-equipe-emphasis.agence-highlight-dynamic {
+    background-position: 0 85% !important;
+    background-size: 0 68% !important;
+    background-repeat: no-repeat !important;
+    background-image: linear-gradient(transparent 28%, #f3d2cd 28%) !important;
+    transition: background-size 0.9s cubic-bezier(0.2, 0.75, 0.22, 1) !important;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.08em;
+}
+
+body.agence-page .agence-approche-emphasis.agence-highlight-dynamic,
+body.agence-page .agence-equipe-emphasis.agence-highlight-dynamic {
+    background-position: 0 85% !important;
+    background-size: 0 68% !important;
+    background-repeat: no-repeat !important;
+    background-image: linear-gradient(transparent 28%, #f3d2cd 28%) !important;
+    transition: background-size 0.9s cubic-bezier(0.2, 0.75, 0.22, 1) !important;
+}
+
+body.agence-page .agence-approche-title .agence-highlight-dynamic.is-revealed,
+body.agence-page .agence-equipe-title .agence-highlight-dynamic.is-revealed {
+    background-size: 100% 68% !important;
+}
+
+        body.agence-page .agence-approche-text {
+            width: min(100%, 700px);
+            justify-self: end;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: #000;
+            font-size: 0.93rem;
+            line-height: 1.62;
+            text-align: justify;
+        }
+
+        body.agence-page .agence-approche-text p {
+            margin: 0;
+        }
+
+        body.agence-page .agence-section-equipe {
+            padding: 3.2rem 0 4rem;
+        }
+
+        body.agence-page .agence-equipe-heading {
+            margin: 0 0 5.8rem;
+            text-align: center;
+        }
+
+        body.agence-page .agence-equipe-heading h1 {
+            font-family: 'Manrope', 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+            line-height: 1.06;
+            letter-spacing: -0.01em;
+        }
+
+        body.agence-page .agence-equipe-title {
+            margin: 0;
+            text-align: center;
+        }
+
+        body.agence-page .agence-equipe-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+
+        body.agence-page .agence-equipe-card {
+            display: grid;
+            grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+            gap: clamp(1.25rem, 2vw, 2rem);
+            align-items: start;
+        }
+
+body.agence-page .agence-equipe-image {
+    width: min(320px, 100%);
+    aspect-ratio: 4 / 5.2;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+}
+
+body.agence-page .agence-equipe-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center top;
+    border-radius: 22px !important;
+}
+
+        body.agence-page .agence-equipe-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.18rem;
+            max-width: none;
+        }
+
+        body.agence-page .agence-equipe-text .profile-name {
+            margin: 0 0 0.15rem;
+            color: #f3d2cd;
+            font-size: clamp(0.88rem, 0.95vw, 0.98rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: 0.04em;
+        }
+
+        body.agence-page .agence-equipe-text .profile-role,
+        body.agence-page .agence-equipe-text .profile-subtitle {
+            font-size: 0.8rem;
+            line-height: 1.14;
+        }
+
+        body.agence-page .agence-equipe-text .profile-role,
+        body.agence-page .agence-equipe-text .profile-subtitle {
+            margin: 0;
+        }
+
+        body.agence-page .agence-equipe-text p {
+            margin: 0 0 0.5rem;
+            color: #464646;
+            font-size: 0.8rem;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        body.agence-page .agence-equipe-text p:not(.profile-quote):not(.profile-role):not(.profile-subtitle) {
+            color: #000;
+        }
+
+        body.agence-page .agence-equipe-text .profile-quote {
+            margin-top: 0.1rem;
+            color: #e8b1aa;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        body.agence-page .agence-equipe-text .profile-quote + .profile-quote {
+            margin-top: 0.7rem;
+        }
+
+        @media (max-width: 1100px) {
+            body.agence-page .header-content,
+            body.agence-page .agence-container {
+                width: min(1320px, calc(100vw - 6cm));
+            }
+
+            body.agence-page .agence-intro-grid,
+            body.agence-page .agence-presentation-grid,
+            body.agence-page .agence-approche-grid {
+                grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+                column-gap: clamp(1.5rem, 2.8vw, 2.5rem);
+            }
+
+            body.agence-page .agence-intro-text,
+            body.agence-page .agence-presentation-text,
+            body.agence-page .agence-approche-text {
+                width: min(100%, 640px);
+            }
+
+            body.agence-page .agence-approche-title-band {
+                margin-bottom: 5rem;
+            }
+
+            body.agence-page .agence-approche-title,
+            body.agence-page .agence-equipe-heading h1 {
+                font-size: clamp(1.75rem, 2.45vw, 2.2rem);
+            }
+
+            body.agence-page .agence-equipe-heading {
+                margin-bottom: 4.6rem;
+            }
+
+            body.agence-page .agence-equipe-text .profile-name {
+                font-size: clamp(0.84rem, 0.95vw, 0.94rem);
+            }
+
+            body.agence-page .agence-equipe-text p {
+                font-size: 0.78rem;
+                line-height: 1.32;
+            }
+
+            body.agence-page .agence-equipe-text .profile-quote {
+                font-size: 0.78rem;
+            }
+
+            body.agence-page .agence-equipe-card {
+                grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+            }
+
+            body.agence-page .agence-equipe-image {
+                width: min(260px, 100%);
+            }
+        }
+
+        @media (max-width: 700px) {
+            body.agence-page .header-content,
+            body.agence-page .agence-container {
+                width: calc(100vw - 1.25rem);
+            }
+
+            body.agence-page .header-content {
+                padding: 0.7rem 0.4rem;
+            }
+
+            body.agence-page nav ul {
+                gap: 0.35rem;
+            }
+
+            body.agence-page nav ul li a {
+                font-size: 0.78rem;
+                padding: 0.25rem 0.15rem;
+                letter-spacing: 0.08em;
+            }
+
+            body.agence-page .agence-section-intro,
+            body.agence-page .agence-section-presentation,
+            body.agence-page .agence-section-approche,
+            body.agence-page .agence-section-equipe {
+                padding-top: 2.1rem;
+            }
+
+            body.agence-page .agence-section-intro {
+                padding-bottom: 3.25rem;
+            }
+
+            body.agence-page .agence-section-presentation,
+            body.agence-page .agence-section-approche {
+                padding-bottom: 3.25rem;
+            }
+
+            body.agence-page .agence-approche-title-band,
+            body.agence-page .agence-equipe-heading {
+                margin: 1.5rem 0 3rem;
+            }
+
+            body.agence-page .agence-approche-title,
+            body.agence-page .agence-equipe-heading h1 {
+                font-size: clamp(1.62rem, 6vw, 1.95rem);
+                line-height: 1.08;
+            }
+
+            body.agence-page .agence-equipe-text .profile-name {
+                font-size: clamp(0.86rem, 4vw, 0.95rem);
+            }
+
+            body.agence-page .agence-equipe-text p,
+            body.agence-page .agence-equipe-text .profile-quote {
+                font-size: 0.84rem;
+                line-height: 1.38;
+            }
+
+            body.agence-page .agence-intro-grid,
+            body.agence-page .agence-presentation-grid,
+            body.agence-page .agence-approche-grid,
+            body.agence-page .agence-equipe-card {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 1rem;
+            }
+
+            body.agence-page .agence-intro-text,
+            body.agence-page .agence-presentation-text,
+            body.agence-page .agence-approche-text {
+                width: 100%;
+                justify-self: stretch;
+                font-size: 0.96rem;
+                line-height: 1.62;
+            }
+
+            body.agence-page .agence-presentation-images,
+            body.agence-page .agence-approche-images {
+                width: 100%;
+            }
+
+            body.agence-page .agence-presentation-card,
+            body.agence-page .agence-approche-note {
+                padding: 1rem 0.9rem;
+            }
+
+            body.agence-page .agence-equipe-image {
+                width: min(100%, 420px);
+                aspect-ratio: 4 / 5;
+                justify-self: center;
+            }
+
+            body.agence-page .agence-equipe-text {
+                gap: 0.35rem;
+            }
+
+            body.agence-page .agence-equipe-text p {
+                font-size: 0.98rem;
+                line-height: 1.55;
+            }
+        }
+body.agence-page .agence-transition-quote {
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+    padding: 2.8rem 0 5rem !important;
+}
+
+body.agence-page .agence-transition-quote p {
+    width: calc(100% - 2rem) !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    color: rgb(230, 139, 127) !important;
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 700px) {
+    body.agence-page .agence-transition-quote {
+        padding: 2rem 0 3rem !important;
+    }
+
+    body.agence-page .agence-transition-quote p {
+        width: 100% !important;
+        font-size: 1.2rem !important;
+        line-height: 1.5 !important;
+    }
+}
+
+body.agence-page .agence-section-equipe .profile-name {
+    color: rgb(230, 139, 127) !important;
+}
+/* === PAGE AGENCE — rapprocher les visuels de gauche de la colonne texte === */
+
+@media (min-width: 701px) {
+    /* Section 1 : photo Anne + Julien */
+    body.agence-page .agence-intro-image {
+        justify-self: end !important;
+        transform: translateX(3.5rem);
+    }
+
+    /* Section 2 : image1_agence + image 2 */
+    body.agence-page .agence-presentation-images {
+        justify-self: end !important;
+        transform: translateX(3.5rem);
+    }
+
+    /* Section 3 : image 3 + image 5 + bloc pensée théorique */
+    body.agence-page .agence-approche-images {
+        justify-self: end !important;
+        transform: translateX(3.5rem);
+    }
+} 
+/* === PAGE AGENCE — section Anne / Julien : rapprocher les photos + texte moins large aligné à droite === */
+
+@media (min-width: 701px) {
+    /* Photos Anne et Julien rapprochées vers le texte */
+    body.agence-page .agence-section-equipe .agence-equipe-image {
+        justify-self: end !important;
+        transform: translateX(3.5rem);
+    }
+
+    /* Texte de droite moins large, mais bord droit toujours aligné au container */
+    body.agence-page .agence-section-equipe .agence-equipe-text {
+        width: min(100%, 760px) !important;
+        max-width: 760px !important;
+        justify-self: end !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+}
+@media (max-width: 700px) {
+    body.agence-page .agence-intro-image,
+    body.agence-page .agence-presentation-images,
+    body.agence-page .agence-approche-images,
+    body.agence-page .agence-section-equipe .agence-equipe-image {
+        transform: none !important;
+        justify-self: center !important;
+    }
+
+    body.agence-page .agence-section-equipe .agence-equipe-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+body.agence-page .agence-section-equipe article.agence-equipe-card .profile-image.agence-equipe-image {
+    border-radius: 22px !important;
+    overflow: hidden !important;
+}
+
+body.agence-page .agence-section-equipe article.agence-equipe-card .profile-image.agence-equipe-image img {
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15 45 L15 20 L25 10 L35 20 L35 45" fill="none" stroke="%23e8b1aa" stroke-width="2.5" stroke-linejoin="miter"/></svg>'>
 </head>
-<body>
+<body class="agence-page">
     <header>
         <div class="header-content">
             <div class="logo">
@@ -35,114 +1162,193 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section agence-layout-section">
-            <div class="hero-container agence-hero-container">
-                <div class="hero-left fade-in-up">
-                    <img src="anne_julien.JPG" alt="Anne et Julien - FAAB Architecte">
-                </div>
-                <div class="hero-right">
-                    <div class="hero-seo fade-in-up agence-long-text" style="margin-bottom:2.2rem;color:#666;font-size:1.04rem;max-width:900px;margin-left:auto;margin-right:auto;text-align:left;margin-top:0.1rem;">
-                        <p><span class="faab-home-inline-dynamic highlight-yellow-dynamic">FAAB Architecte</span> est une agence d’architecture familiale créée en 2024, composée de <span class="accent"><strong>Anne Blangy</strong></span>, Architecte diplômée d’état &amp; HMONP, ayant exercée plus de 10 ans au sein d’agences reconnues et de <span class="accent"><strong>Julien BERGOT</strong></span>, diplômé d’école de commerce, étant intervenu dans le développement de projets immobiliers au sein de grands groupes immobilier et du BTP.</p>
+        <div class="agence-container">
+            <section class="agence-section agence-section-intro">
+                <div class="agence-intro-grid fade-in-up">
+                    <div class="agence-intro-image">
+                        <img src="anne_julien.JPG" alt="Anne et Julien - FAAB Architecte">
+                    </div>
+                    <div class="agence-intro-text">
+                        <p>FAAB architecte est une agence d’architecture pluridisciplinaire familiale créée en 2024, composée d’<strong>Anne Blangy</strong>, Architecte diplômée d’état &amp; HMONP, ayant exercée plus de 10 ans au sein d’agences d’architecture reconnues et de <strong>Julien Bergot</strong> diplômé d’école de commerce, ayant des expériences abouties dans le développement et le pilotage de projets immobiliers au sein d’entreprises de l’immobilier et de groupe français du BTP.</p>
 
-                        <p>Notre alliance professionnelle est l’aboutissement d’une réflexion approfondie visant à la mutualisation de nos compétences respectives, permettant ainsi d’offrir, de garantir, une parfaite connaissance des attentes et obligations des territoires, ainsi que des acteurs de l’immobilier et de la construction.<br>
-                        Notre expérience et notre savoir-faire sont <span class="accent">maîtrisés, méticuleux, et rigoureux</span> permettant un respect complet de l’urbanisme réglementaire, ainsi qu’une adaptabilité constante aux enjeux spatiaux, politico-sociaux, techniques et constructifs, environnementaux, technologiques et économiques au travers de nos projets.</p>
+                        <p>Située dans les Hauts-de-Seine (92) et dans l’Aisne (02) en Hauts-de France, l’agence est implantée sur les communes de SAINT-CLOUD et de SOISSONS.</p>
 
-                        <p class="accent agence-quote">« <strong>L’Agence</strong> valorise une vision architecturale à haute valeur Humaine, claire, agile et ancrée dans notre temporalité notamment sociétale. Ces valeurs sont mises quotidiennement au service de nos clients tant dans la conception que l’exécution de chacun des projets. »</p>
+                        <p>Notre activité intervient sur toute la France et plus particulièrement sur l’arc Nord-Ouest reprenant les régions d’Île-de-France, Hauts-de-France, Bretagne et Normandie.</p>
 
-                        <p>Située dans les <span class="accent"><strong>Hauts-de-Seine</strong></span> (92), l’agence est implantée sur la commune de <span class="accent"><strong>SAINT-CLOUD</strong></span>, aux abords de son hippodrome.<br>
-                        Notre activité intervient à l’échelle de la France et plus particulièrement sur l’arc Nord-Ouest reprenant les régions d’<span class="accent">Île-de-France, Hauts-de-France, Bretagne et Normandie</span>.<br>
-                        Nous portons l’ambition d’être au plus proche, à l’écoute des territoires et de nos clients, afin de les accompagner dans leurs projets, à travers notre expertise, ainsi que notre démarche de conception alliant <span class="accent">réalisme et agilité</span>.</p>
+                        <p>Nous portons l’ambition d’être au plus proche, à l’écoute des territoires et de nos clients, afin de les accompagner dans leurs projets neufs et/ou de réhabilitations, à travers notre expertise, ainsi que notre démarche de conception alliant réalisme, pragmatisme et agilité.</p>
+
+                        <p>Notre alliance professionnelle est l’aboutissement d’une réflexion approfondie visant la mutualisation de nos compétences respectives.</p>
+
+                        <p>Notre complémentarité professionnelle, nos expériences ainsi que nos savoirs faires respectifs permettent d’offrir et de garantir pleinement aux collectivités, aux acteurs de l’immobilier, de la construction ainsi qu’aux entreprises, des approches réflexives adaptées et analysées préalablement, permettant ensuite la concrétisation de leur(s) projet(s) de façon réaliste, conceptuellement et techniquement optimisé ainsi que viable financièrement.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="agence-programmes-section">
-            <div class="agence-programmes-flow fade-in-up">
-                    <div class="agence-programmes-text">
-                    <p>Dès le démarrage de votre projet, nous partageons, avec nos clients, une <span class="accent">relation</span> directe, <span class="accent">fondée sur la confiance</span>, la <span class="accent">proximité</span>, la <span class="accent">transparence</span> et un <span class="accent">dialogue constructif</span> pour un <span class="accent">engagement durable</span>.</p>
-
-                    <p>Notre activité se concentre particulièrement sur la réalisation de programmes d’<span class="accent">HABITAT</span>, sous toutes ses formes : du <span class="accent">collectif à l’individuel</span>, en passant par les <span class="accent">résidences gérées, intergénérationnelles et médicalisées</span>, l’habitat d’urgence et l’<span class="accent">aménagement intérieur</span>.<br>
-                    En parallèle, tant qu’agence <span class="accent">familiale</span>, nous avons à cœur d’intervenir sur des projets d’<span class="accent">ÉQUIPEMENTS</span> tournés sur le thème de la <span class="accent">FAMILLE</span> et de la <span class="accent">CULTURE</span>, à l’instar de crèches, groupes scolaires, universitaires, médiathèques et locaux associatifs.</p>
-
-                    <p>Nous intervenons en neuf, et en réhabilitation, pour des missions partielles, complètes ou du montage d’opération clé en main, afin de répondre à une <span class="accent">maîtrise d’ouvrage privée</span>, compris <span class="accent">privée professionnelle</span> ou <span class="accent">publique et institutionnelle</span>.</p>
+            </section>
+            <section class="agence-section agence-transition-quote fade-in-up">
+            <p>
+        L’Agence prône une vision architecturale à haute valeur Humaine, claire, agile et ancrée dans sa temporalité notamment sociétale. Ces valeurs sont mises quotidiennement au service de nos clients et des collectivités tant dans la conception que l’exécution de chacun des projets
+    </p>
+            </section>
+            <section class="agence-section agence-section-presentation">
+                <div class="agence-presentation-grid fade-in-up">
+                    <div class="agence-presentation-images">
+                        <div class="agence-presentation-image">
+                            <img src="image1_agence.png" alt="Illustration projet agence">
+                        </div>
+                        <div class="agence-presentation-image">
+                            <img src="image 2.png" alt="Illustration projet agence">
+                        </div>
                     </div>
-                    <div class="agence-programmes-image">
-                        <img src="image_agence.png" alt="Illustration projet agence">
+                    <div class="agence-presentation-text">
+                        <p>A l’écoute des territoires et de ses clients, fort de son engagement quotidien dans le respect de l’environnement ainsi que des adaptations constantes dans l’ensemble de nos réflexions et de nos projets font de l’agence FAAB architecte, le partenaire adéquat pour vous accompagner durablement dans la réussite de l’ensemble de vos projets immobiliers, architecturaux et urbains.</p>
+
+                        <p>Dès le démarrage du projet, nous partageons, avec l’ensemble de nos clients et des collectivités, une relation directe, fondée sur la confiance, la proximité et la transparence en mettant en place un dialogue sincère, constructif au service du projet permettant un engagement durable et efficient.</p>
+
+                        <p>Notre activité se concentre principalement sur la conception et la réalisation de programmes d’habitat, en neuf comme en réhabilitation, couvrant l’ensemble des formes de logement. Du collectif à l’individuel, en passant par les résidences gérées, intergénérationnelles ou médicalisées, ainsi que l’habitat d’urgence, nous développons des réponses adaptées aux enjeux contemporains, environnementaux et aux besoins spécifiques des usages et des usagers.</p>
+
+                        <p>Parallèlement, nous accordons une attention particulière aux projets d’équipements dédiés à la famille et à la culture tels que les crèches, les établissements scolaires et universitaires, les médiathèques ou encore les locaux communaux et associatifs. Nous concevons, pour chacun d’eux, des lieux de vie et de partage, pensés pour favoriser le lien social et accompagner les dynamiques territoriales.</p>
+
+                        <div class="agence-presentation-card agence-encadre-force">
+                            <p>FAAB Architecte intervient en neuf, et en réhabilitation, pour des missions partielles, complètes ou du montage d’opération clé en main, afin de répondre à une maîtrise d’ouvrage privée (Promoteurs immobilier, bailleurs sociaux, marchand de biens, tertiaires…), privée professionnelle ou publique et institutionnelle</p>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="agence-theory-box fade-in-up">
-                <p>Notre <span class="accent">PENSEE THEORIQUE</span> se définit par prôner l’architecture comme un tout entier, une unité de forme et de fonction indissociables destinée à l’Homme, le tout inscrit dans une temporalité historique, sociétale, géo-politico-sociale, financière et environnementale. L’essence même des composantes intrinsèques d’une architecture sont les moteurs de nos réflexions quant à la conception d’un projet.</p>
+            <section class="agence-section agence-section-approche">
+                <div class="agence-approche-title-band fade-in-up">
+                    <h2 class="agence-approche-title"><span class="agence-approche-prefix">Concevoir</span> <span class="agence-approche-emphasis agence-highlight-dynamic">avec pragmatisme pour bâtir avec précision</span></h2>
                 </div>
-        </section>
 
-        <section class="agence-manifesto-section">
-            <div class="agence-manifesto-body agence-manifesto-frame fade-in-up">
-                <h2 class="agence-manifesto-title"><span class="agence-manifesto-prefix">Concevoir</span> <span class="agence-manifesto-emphasis highlight-yellow-dynamic">avec pragmatisme pour bâtir avec précision</span></h2>
+                <div class="agence-approche-grid fade-in-up">
+                    <div class="agence-approche-images">
+                        <div class="agence-approche-image">
+                            <img src="image 3.png" alt="Illustration projet agence">
+                        </div>
 
-                <p>Notre approche de la pratique de l’architecture vise un <span class="accent">retour aux fondamentaux</span>, passant notamment par une conception des ouvrages tournée vers le <span class="accent">besoin d’usage</span> et un <span class="accent">centrage</span> sur les <span class="accent">utilisateurs</span>.</p>
+                        <div class="agence-approche-image">
+                            <img src="image 5.png" alt="Illustration projet agence">
+                        </div>
 
-                <p>Notre conviction est simple, chaque projet mérite une réponse <span class="accent">précise</span>, <span class="accent">optimisée</span> et <span class="accent">créative</span>. Nous aimons <span class="accent">révéler le potentiel</span> parfois invisible d’une parcelle, d’un programme ou d’un existant, en cherchant toujours la <span class="accent">pertinence</span> plutôt que l’effet. La forme découle de la fonction, de la lumière, du contexte et des ressources disponibles. L’élégance vient de l’évidence.</p>
-
-                <p>Notre manière de collaborer est nourrit par la <span class="accent">dimension familiale</span> : chaque projet est suivi avec attention, chaque décision est guidée par une <span class="accent">responsabilité partagée</span>. Nous aimons travailler dans la <span class="accent">continuité</span>, créer des <span class="accent">liens</span>, et inscrire nos projets dans le temps long.</p>
-
-                <p>En véritable <span class="accent">éthique de projet</span>, notre démarche s’inscrit dans la <span class="accent">sincérité</span>, le <span class="accent">respect des ressources</span>, la valorisation de l’existant, et la conception de bâtiments qui prennent autant soin des habitants que du territoire.</p>
-
-                <p>Nous voulons imaginer une architecture <span class="accent">rigoureuse</span> dans sa conception, <span class="accent">sobre</span> dans son expression, capable d’<span class="accent">optimiser</span> chaque mètre carré, chaque matériau, chaque flux. Cette <span class="accent">exigence</span> se prolonge naturellement dans la dimension <span class="accent">environnementale</span> : intégrer le <span class="accent">bioclimatique</span>, le <span class="accent">bas-carbone</span>, l’<span class="accent">efficacité énergétique</span> ou le <span class="accent">réemploi</span>. Nous voulons penser durable pour concevoir juste dès le départ.</p>
-
-                <p><span class="accent"><strong>FAAB Architecte</strong></span> est une agence structurée autour de l’<span class="accent">écoute</span>, de la <span class="accent">méthode</span> et d’un <span class="accent">engagement</span> constant pour la qualité. Nous croyons aux projets cohérents, aux idées claires, aux dessins qui résolvent autant qu’ils inspirent.</p>
-
-                <p>Notre rôle : rendre possible, clarifier, coordonner, imaginer pour livrer des lieux qui <span class="accent">fonctionnent</span> autant qu’ils séduisent.</p>
-
-                <p>Nous <span class="accent">explorons</span>, nous <span class="accent">affinons</span>, nous <span class="accent">ajustons</span>. Nous créons des projets qui ressemblent à leurs usagers et répondent à leur demande, à leurs territoires et à leur époque, tout en leur permettant d’évoluer dans le temps, dans le <span class="accent">respect</span> des enjeux économiques, et de leur enveloppe <span class="accent">financière</span>.</p>
-            </div>
-        </section>
-
-        <section class="agence-team-section">
-            <div class="agence-team-heading fade-in-up">
-                <h1 class="agence-team-title">
-                    <span class="agence-team-prefix">L’architecture est une</span>
-                    <span class="agence-team-emphasis highlight-yellow-dynamic">manière d’habiter le monde avec sens, justesse et responsabilité</span>
-                </h1>
-            </div>
-
-            <div class="agence-team-list">
-                <article class="team-profile agence-profile fade-in-up">
-                    <div class="profile-image agence-profile-image">
-                        <img src="anne.JPG" alt="Anne Blangy">
+                        <div class="agence-approche-note agence-encadre-force">
+                            <p>Notre <span class="agence-approche-keyword">PENSEE THEORIQUE</span> se définit par prôner l'architecture comme un<br>
+                            tout entier, une unité de forme et de fonction indissociables destinée à<br>
+                            l'Homme, le tout inscrit dans une temporalité historique, societale, geo-<br>
+                            politico-sociale, financière et environnementale. L'essence même des<br>
+                            composantes intrinsèques d'une architecture sont les moteurs de nos<br>
+                            réflexions quant à la conception d'un projet.</p>
+                        </div>
                     </div>
-                    <div class="profile-content agence-profile-content">
-                        <h2 class="profile-name">ANNE BLANGY</h2>
-                        <p class="profile-role">Architecte DE+HMONP</p>
-                        <p class="profile-subtitle">Fondatrice et gérante depuis 2024</p>
 
-                        <p>« Diplômée de l’ENSAP Lille, j’ai construit mon expérience depuis plus de dix ans à travers des projets pluridisciplinaires et pragmatiques pour des maîtrises d’ouvrages privées et publiques. »</p>
+                    <div class="agence-approche-text">
+                        <p>Notre approche de la pratique de l’architecture vise un <span class="accent">retour aux fondamentaux</span>, passant notamment par une conception des ouvrages tournée vers le <span class="accent">besoin d’usage</span> et un <span class="accent">centrage</span> sur les <span class="accent">utilisateurs</span>.</p>
 
-                        <p class="profile-quote">« Je suis architecte, et je pratique l’équitation, où je participe à des compétitions de saut d’obstacles. Cela me procure une grande rigueur, une humilité et une écoute attentive. Avant je faisais du parachutisme. J’aime les sensations fortes qui me permettent de repousser mes limites pour me challenger en permanence. »</p>
+                        <p>Notre conviction est simple, chaque projet mérite une réponse <span class="accent">précise</span>, <span class="accent">optimisée</span> et <span class="accent">créative</span>. Nous aimons <span class="accent">révéler le potentiel</span> parfois invisible d’une parcelle, d’un programme ou d’un existant, en cherchant toujours la <span class="accent">pertinence</span> plutôt que l’effet. La forme découle de la fonction, de la lumière, du contexte et des ressources disponibles. L’élégance vient de l’évidence.</p>
+
+                        <p>Notre manière de collaborer est nourrit par la <span class="accent">dimension familiale</span> : chaque projet est suivi avec attention, chaque décision est guidée par une <span class="accent">responsabilité partagée</span>. Nous aimons travailler dans la <span class="accent">continuité</span>, créer des <span class="accent">liens</span>, et inscrire nos projets dans le temps long.</p>
+
+                        <p>En véritable <span class="accent">éthique de projet</span>, notre démarche s’inscrit dans la <span class="accent">sincérité</span>, le <span class="accent">respect des ressources</span>, la valorisation de l’existant, et la conception de bâtiments qui prennent autant soin des habitants que du territoire.</p>
+
+                        <p>Nous voulons imaginer une architecture <span class="accent">rigoureuse</span> dans sa conception, <span class="accent">sobre</span> dans son expression, capable d’<span class="accent">optimiser</span> chaque mètre carré, chaque matériau, chaque flux. Cette <span class="accent">exigence</span> se prolonge naturellement dans la dimension <span class="accent">environnementale</span> : intégrer le <span class="accent">bioclimatique</span>, le <span class="accent">bas-carbone</span>, l’<span class="accent">efficacité énergétique</span> ou le <span class="accent">réemploi</span>. Nous voulons penser durable pour concevoir juste dès le départ.</p>
+
+                        <p><span class="accent"><strong>FAAB Architecte</strong></span> est une agence structurée autour de l’<span class="accent">écoute</span>, de la <span class="accent">méthode</span> et d’un <span class="accent">engagement</span> constant pour la qualité. Nous croyons aux projets cohérents, aux idées claires, aux dessins qui résolvent autant qu’ils inspirent.</p>
+
+                        <p>Notre rôle : rendre possible, clarifier, coordonner, imaginer pour livrer des lieux qui <span class="accent">fonctionnent</span> autant qu’ils séduisent.</p>
+
+                        <p>Nous <span class="accent">explorons</span>, nous <span class="accent">affinons</span>, nous <span class="accent">ajustons</span>. Nous créons des projets qui ressemblent à leurs usagers et répondent à leur demande, à leurs territoires et à leur époque, tout en leur permettant d’évoluer dans le temps, dans le <span class="accent">respect</span> des enjeux économiques, et de leur enveloppe <span class="accent">financière</span>.</p>
                     </div>
-                </article>
+                </div>
+            </section>
+        </div>
 
-                <article class="team-profile agence-profile fade-in-up">
-                    <div class="profile-image agence-profile-image">
-                        <img src="julien.JPG" alt="Julien Bergot">
-                    </div>
-                    <div class="profile-content agence-profile-content">
-                        <h2 class="profile-name">JULIEN BERGOT</h2>
-                        <p class="profile-role">Développement + Stratégies</p>
-                        <p class="profile-subtitle">Associé et co-gérant depuis 2026</p>
+        <section class="agence-section agence-section-equipe">
+            <div class="agence-container">
+                <div class="agence-equipe-heading fade-in-up">
+                    <h1 class="agence-equipe-title">
+                        <span class="agence-equipe-prefix">L’architecture est une</span>
+                        <span class="agence-equipe-emphasis agence-highlight-dynamic">manière d’habiter le monde avec sens, justesse et responsabilité</span>
+                    </h1>
+                </div>
 
-                        <p>« Après plus de quinze ans auprès d’entreprises reconnues de la promotion immobilière et du BTP, j’ai acquis une multiplicité de facultés à entreprendre des projets réalistes, tout en répondant aux nombreuses mutations économiques, financières et environnementales du secteur. »</p>
+                <div class="agence-equipe-list">
+                    <article class="team-profile agence-equipe-card fade-in-up">
+                        <div class="profile-image agence-equipe-image">
+                            <img src="anne.JPG" alt="Anne Blangy">
+                        </div>
+                        <div class="profile-content agence-equipe-text">
+                            <h2 class="profile-name">ANNE BLANGY</h2>
+                            <p class="profile-role">Architecte DE+HMONP</p>
+                            <p class="profile-subtitle">Fondatrice & co-gérante</p>
 
-                        <p class="profile-quote">« Je suis un passionné, je joue au tennis, ce qui me demande une entière concentration afin de mener une stratégie et un dépassement de soi pour gagner chaque point et sortir vainqueur de chaque match. »</p>
-                    </div>
-                </article>
+                            <p>Diplômée de l’ENSAP Lille, j’ai construit mon expertise depuis plus de dix ans dans des agences reconnues à travers la conduite d’opération de logements mais également d’équipements publics tant en neuf qu’en réhabilitation.</p>
+
+                            <p>Nos projets sont menés avec rigueur et pragmatisme, pour le compte de maîtrises d’ouvrages publiques et privées. Habituée à évoluer dans des environnements exigeants, j’ai développé une capacité à concevoir des projets dans une logique d’efficience opérationnelle, à coordonner des équipes pluri-acteurs et à piloter chaque projet avec une approche garantissant leur cohérence architecturale et leur performance. Celle-ci me permet aujourd’hui d’apporter des réponses claires, adaptées, innovantes et maîtrisées, en phase avec les attentes spécifiques de chacun et en réponse aux enjeux propres à chaque territoire.</p>
+
+                            <p class="profile-quote">« Passionnée de sport, je pratique l’équitation en compétition de sauts d’obstacles, discipline exigeante qui requiert précision et maîtrise permanente. Celle-ci m’apporte au quotidien des qualités essentielles telles que la rigueur, l’humilité, ainsi qu’une écoute attentive, indispensable au quotidien.</p>
+
+                            <p class="profile-quote">J’ai également pratiqué le parachutisme, une expérience forte qui illustre mon attrait pour les environnements engageants et les sensations intenses. Cette discipline m’a appris la gestion du risque, la concentration absolue et la prise de décision dans des contextes exigeants.</p>
+
+                            <p class="profile-quote">Ces deux pratiques exigeantes traduisent une volonté constante de me dépasser, de sortir de ma zone de confort et de nourrir une dynamique de progression continue, que je transpose également dans mon approche professionnelle. »</p>
+                        </div>
+                    </article>
+
+                    <article class="team-profile agence-equipe-card fade-in-up">
+                        <div class="profile-image agence-equipe-image">
+                            <img src="julien.JPG" alt="Julien Bergot">
+                        </div>
+                        <div class="profile-content agence-equipe-text">
+                            <h2 class="profile-name">JULIEN BERGOT</h2>
+                            <p class="profile-role">Développement & Relations Institutionnelles</p>
+                            <p class="profile-subtitle">Co-gérant</p>
+
+                            <p>Diplômé d’une école de commerce, je bénéficie de plus de quinze années d’expérience à des fonctions de direction du développement au sein d’entreprises reconnues dans les secteurs de la promotion immobilière et du BTP.</p>
+
+                            <p>Ce parcours m’a permis d’acquérir une vision à la fois stratégique et opérationnelle des projets, intégrant les enjeux économiques, environnementaux et programmatiques.</p>
+
+                            <p>J’interviens aujourd’hui à toutes les phases du projet avec une approche pragmatique et optimisée, orientée vers l’efficacité et la fiabilité des projets conçus.</p>
+
+                            <p class="profile-quote">« Passionné de sport et de culture, je retrouve dans la pratique hebdomadaire du tennis des valeurs de vie essentielles : rigueur, respect, concentration et capacité à se dépasser pour atteindre ses objectifs. »</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var revealTargets = document.querySelectorAll('.agence-manifesto-title-band, .agence-team-heading');
+
+            if (!revealTargets.length) {
+                return;
+            }
+
+            setTimeout(function () {
+                revealTargets.forEach(function (target) {
+                    target.classList.add('visible');
+                });
+            }, 50);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var revealTargets = document.querySelectorAll(
+                '.agence-manifesto-title .agence-highlight-dynamic, .agence-team-title .agence-highlight-dynamic'
+            );
+
+            if (!revealTargets.length) {
+                return;
+            }
+
+            setTimeout(function () {
+                revealTargets.forEach(function (target) {
+                    target.classList.add('is-revealed');
+                });
+            }, 50);
+        });
+    </script>
         <div class="footer-content footer-small">
             <div class="footer-line">
                 <span>&copy; 2026 | FAAB Architecte&nbsp;|&nbsp;<a href="mentions-legales.html">Mentions légales</a>&nbsp;|&nbsp;<a href="rgpd.html">RGPD</a></span>

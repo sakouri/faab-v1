@@ -72,33 +72,49 @@ document.addEventListener('DOMContentLoaded', function () {
             item.style.transitionDelay = (index * 0.14).toFixed(2) + 's';
         });
     });
+function revealAgenceHighlights(scope) {
+    var root = scope || document;
 
-    if (prefersReducedMotion) {
-        revealItems.forEach(function (item) {
-            item.classList.add('visible');
-        });
-    } else if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: '0px 0px -8% 0px',
-            threshold: 0.12
-        });
+    root.querySelectorAll(
+        '.agence-approche-title .agence-highlight-dynamic, .agence-equipe-title .agence-highlight-dynamic'
+    ).forEach(function (highlight) {
+        highlight.classList.add('is-revealed');
+    });
+}
 
-        revealItems.forEach(function (item) {
-            observer.observe(item);
+if (prefersReducedMotion) {
+    revealItems.forEach(function (item) {
+        item.classList.add('visible');
+    });
+
+    revealAgenceHighlights(document);
+} else if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealAgenceHighlights(entry.target);
+                observer.unobserve(entry.target);
+            }
         });
-    } else {
-        revealItems.forEach(function (item) {
-            item.classList.add('visible');
-        });
-    }
+    }, {
+        root: null,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.12
+    });
+
+    revealItems.forEach(function (item) {
+        observer.observe(item);
+    });
+
+
+} else {
+    revealItems.forEach(function (item) {
+        item.classList.add('visible');
+    });
+
+    revealAgenceHighlights(document);
+}
 
     document.querySelectorAll('.vision-item, .team-member').forEach(function (element) {
         element.addEventListener('mouseenter', function () {
@@ -245,13 +261,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }).join('');
             }
             
-            // Update back button visibility
-            if (studyBack) {
-                if (index === 0) {
-                    studyBack.classList.remove('visible');
-                } else {
-                    studyBack.classList.add('visible');
-                }
+            if (studyPrev && studyNext) {
+                var showNavigation = index > 0;
+                studyPrev.style.display = showNavigation ? 'inline-flex' : 'none';
+                studyNext.style.display = showNavigation ? 'inline-flex' : 'none';
             }
             
             replayStudyTitleHighlight();
@@ -262,7 +275,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            var nextIndex = (studyIndex + step + savoirFaireItems.length) % savoirFaireItems.length;
+            var missionCount = savoirFaireItems.length - 1;
+            var nextIndex;
+
+            if (studyIndex === 0) {
+                nextIndex = step > 0 ? 1 : missionCount;
+            } else {
+                nextIndex = ((studyIndex - 1 + step + missionCount) % missionCount) + 1;
+            }
 
             if (prefersReducedMotion) {
                 studyIndex = nextIndex;
@@ -319,27 +339,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Handle back button click
-        if (studyBack) {
-            studyBack.addEventListener('click', function () {
-                if (prefersReducedMotion) {
-                    studyIndex = 0;
-                    renderStudyItem(studyIndex);
-                } else {
-                    isAnimating = true;
-                    studyTitle.classList.add('is-changing');
-                    studyContent.classList.add('is-changing');
-
-                    setTimeout(function () {
-                        studyIndex = 0;
-                        renderStudyItem(studyIndex);
-                        studyTitle.classList.remove('is-changing');
-                        studyContent.classList.remove('is-changing');
-                        isAnimating = false;
-                    }, 180);
-                }
-            });
-        }
     }
 
     // ========== REALISATIONS PAGE LOGIC ==========
