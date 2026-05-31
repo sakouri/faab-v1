@@ -6118,3 +6118,685 @@ body.agence-page .agence-equipe-prefix {
     }
 }
 
+/* === ACCUEIL — repositionnement images Nos savoir-faire avec espace augmenté === */
+
+@media (min-width: 901px) {
+.home-page .hp-savoir-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 760px) minmax(280px, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(2rem, 5vw, 6rem);
+
+    /* On garde un gap normal, l’espace principal est sur le bloc du bas */
+    row-gap: 0;
+
+    align-items: center;
+}}
+
+    /* Bloc titre + texte du haut à gauche */
+    .home-page .hp-savoir-header {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+    }
+
+    .home-page .hp-savoir-header .hp-right-copy.hp-savoir-text-limited {
+        width: 100% !important;
+        max-width: 760px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: justify !important;
+    }
+
+    .home-page .hp-savoir-header .hp-right-copy.hp-savoir-text-limited p {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Image archi à droite du texte du haut */
+    .home-page .hp-savoir-col-left {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .home-page .hp-quote-figure {
+        width: min(360px, 100%);
+        margin: 0 auto !important;
+        transform: none !important;
+        align-self: center;
+    }
+
+    /* Ligne du bas : immeuble à gauche + texte à droite */
+    .home-page .hp-savoir-col-right {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: minmax(280px, 420px) minmax(0, 796px);
+        column-gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        position: static !important;
+        top: auto !important;
+    }
+
+    .home-page .hp-facade {
+        grid-column: 1;
+        grid-row: 1 / span 5;
+        width: min(420px, 100%);
+        max-width: 100%;
+        margin: 0 !important;
+        transform: none !important;
+        justify-content: flex-start;
+    }
+
+    .home-page .hp-facade img {
+        width: 100%;
+        max-width: none;
+        height: auto;
+    }
+
+    .home-page .hp-savoir-col-right .hp-left-copy {
+        grid-column: 2;
+        width: 100%;
+        max-width: 796px;
+        margin-left: 0 !important;
+        margin-top: 0;
+        text-align: justify;
+    }
+}
+
+/* Mobile : on garde un empilement propre avec un peu plus d'air */
+@media (max-width: 900px) {
+    .home-page .hp-savoir-grid {
+        grid-template-columns: 1fr;
+        row-gap: 10rem;
+    }
+
+    .home-page .hp-savoir-header {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .home-page .hp-savoir-col-left {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+.home-page .hp-savoir-col-right {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: minmax(280px, 420px) minmax(0, 796px);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+
+    /* Espace AVANT le bloc immeuble + texte */
+    margin-top: clamp(4rem, 7vw, 6rem) !important;
+
+    padding-top: 0 !important;
+    position: static !important;
+    top: auto !important;
+}
+
+    .home-page .hp-quote-figure,
+    .home-page .hp-facade {
+        transform: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .home-page .hp-facade {
+        width: min(360px, 100%);
+    }
+
+    .home-page .hp-savoir-header .hp-right-copy.hp-savoir-text-limited {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .home-page .hp-savoir-header .hp-right-copy.hp-savoir-text-limited p,
+    .home-page .hp-savoir-col-right .hp-left-copy {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* === ACCUEIL — espace avant le bloc immeuble + texte === */
+
+@media (min-width: 901px) {
+    .home-page .hp-savoir-grid {
+        row-gap: 0 !important;
+    }
+
+    .home-page .hp-savoir-col-right {
+        /* Espace AVANT l'image immeuble + son texte */
+        padding-top: clamp(10rem, 9vw, 8rem) !important;
+
+        margin-top: 0 !important;
+        box-sizing: border-box;
+    }
+}
+
+/* === ACCUEIL — carrousel Nos missions fixe à gauche + contenu à droite === */
+
+.home-page .hp-study.hp-shell {
+    width: 100%;
+}
+
+.home-page .hp-study {
+    padding-top: clamp(2rem, 3vw, 3rem);
+    padding-bottom: clamp(5rem, 7vw, 6.8rem);
+    position: relative;
+}
+
+/* Bandeau rose fixe : la hauteur est calculée par le JS sur la page la plus haute */
+.home-page .hp-study-grid {
+    position: relative;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: var(--hp-study-band-height, 620px);
+    min-height: var(--hp-study-band-height, 620px);
+    padding: clamp(2rem, 3vw, 2.6rem) clamp(5rem, 8vw, 7rem);
+    background: rgba(232, 177, 170, 0.08);
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: height 0.25s ease, min-height 0.25s ease;
+}
+
+.home-page .hp-study-panel {
+    width: min(1180px, calc(100vw - 6cm));
+    display: grid !important;
+    grid-template-columns: minmax(260px, 340px) minmax(0, 760px);
+    column-gap: clamp(3rem, 7vw, 7rem);
+    align-items: start;
+}
+
+/* Colonne gauche fixe */
+.home-page .hp-study-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.home-page .hp-study-title {
+    margin: 0 0 clamp(1.8rem, 3vw, 2.6rem);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.5rem, 3.8vw, 3.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: none !important;
+    text-align: left !important;
+}
+
+.home-page .hp-study-title .highlight-yellow-dynamic {
+    padding: 0 0.06em;
+}
+
+.home-page .hp-study-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(1.35rem, 2.4vw, 2.1rem);
+}
+
+.home-page .hp-study-mission-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #1d1d1d;
+    font-family: 'Manrope', 'Lato', sans-serif;
+    font-size: clamp(0.92rem, 1.1vw, 1.08rem);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.home-page .hp-study-mission-link:hover,
+.home-page .hp-study-mission-link.is-active {
+    color: var(--primary-color);
+}
+
+.home-page .hp-study-mission-link.is-active {
+    font-weight: 500;
+    transform: translateX(0.25rem);
+}
+
+.home-page .hp-study-arrow {
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+/* Colonne droite : page associée */
+.home-page .hp-study-right {
+    min-width: 0;
+    max-width: 760px;
+    padding-top: 0.15rem;
+}
+
+.home-page .hp-study-current-title {
+    margin: 0 0 clamp(1.2rem, 2vw, 1.8rem);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 3vw, 3.05rem);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    text-transform: none;
+    color: var(--primary-color);
+}
+
+.home-page .hp-study-current-title .highlight-yellow-dynamic {
+    padding: 0 0.06em;
+}
+
+.home-page .hp-study-copy {
+    max-width: 760px;
+    width: 100%;
+    padding-right: 0;
+}
+
+.home-page .hp-study-copy p {
+    margin: 0 0 1rem;
+    color: #1d1d1d;
+    font-size: clamp(0.96rem, 1.08vw, 1.05rem);
+    line-height: 1.48;
+    text-align: justify;
+    text-align-last: left;
+}
+
+.home-page .hp-study-copy p:last-child {
+    margin-bottom: 0;
+}
+
+.home-page .hp-study-copy-content,
+.home-page .hp-study-current-title {
+    transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.home-page .hp-study-copy-content.is-changing,
+.home-page .hp-study-current-title.is-changing {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+/* Flèches conservées */
+.home-page .hp-study-nav-btn {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 5;
+    display: inline-flex;
+}
+
+.home-page .hp-study-prev {
+    left: clamp(1rem, 4vw, 4rem) !important;
+    right: auto !important;
+}
+
+.home-page .hp-study-next {
+    right: clamp(1rem, 4vw, 4rem) !important;
+    left: auto !important;
+}
+
+/* Mobile / tablette */
+@media (max-width: 900px) {
+    .home-page .hp-study-grid {
+        height: auto;
+        min-height: var(--hp-study-band-height, auto);
+        padding: clamp(1.4rem, 5vw, 2rem) clamp(1.2rem, 5vw, 2rem);
+        align-items: flex-start;
+    }
+
+    .home-page .hp-study-panel {
+        width: 100%;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+
+    .home-page .hp-study-title {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+        margin-bottom: 1.4rem;
+    }
+
+    .home-page .hp-study-menu {
+        gap: 1rem;
+    }
+
+    .home-page .hp-study-right {
+        max-width: 100%;
+    }
+
+    .home-page .hp-study-current-title {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+    }
+
+    .home-page .hp-study-nav-btn {
+        top: 0.8rem !important;
+        transform: none !important;
+    }
+
+    .home-page .hp-study-prev {
+        left: 0.8rem !important;
+    }
+
+    .home-page .hp-study-next {
+        right: 0.8rem !important;
+    }
+}
+/* === ACCUEIL — titres du contenu à droite en noir + surlignage rose dynamique === */
+
+.home-page .hp-study-current-title {
+    color: #111 !important;
+}
+
+/* Le texte du titre reste noir */
+.home-page .hp-study-current-title .highlight-yellow-dynamic,
+.home-page .hp-study-current-title .hp-title-initial {
+    color: #111 !important;
+}
+
+/* Le surlignage dynamique reste rose */
+.home-page .hp-study-current-title .highlight-yellow-dynamic::before {
+    background: var(--highlight-pink-light, #f3d2cd) !important;
+    opacity: 1 !important;
+}
+
+@media (min-width: 901px) {
+    /* Variables accessibles aux flèches ET au contenu */
+    .home-page .hp-study {
+        --hp-study-panel-w: min(1180px, calc(100vw - 6cm));
+        --hp-study-left-col: clamp(220px, 20vw, 300px);
+        --hp-study-col-gap: clamp(4.5rem, 7.5vw, 8rem);
+        --hp-study-content-w: 760px;
+    }
+    .home-page .hp-study-left {
+    transform: translateX(-4rem) translateY(-0.35rem);
+}
+
+    .home-page .hp-study-panel {
+        width: var(--hp-study-panel-w) !important;
+        grid-template-columns: var(--hp-study-left-col) minmax(0, var(--hp-study-content-w)) !important;
+        column-gap: var(--hp-study-col-gap) !important;
+        align-items: start !important;
+    }
+
+    /* Aligne "Nos missions" avec le titre de droite */
+    .home-page .hp-study-left,
+    .home-page .hp-study-right {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .home-page .hp-study-title,
+    .home-page .hp-study-current-title {
+        margin-top: 0 !important;
+    }
+
+    /* Petit ajustement visuel : remonte légèrement "Nos missions" */
+    .home-page .hp-study-left {
+        transform: translateX(-4rem) translateY(-0.35rem);
+    }
+
+    /* Réduit l’écart entre les titres dans la liste */
+    .home-page .hp-study-menu {
+        gap: clamp(0.7rem, 1.05vw, 1rem) !important;
+    }
+
+    .home-page .hp-study-title {
+        margin-bottom: clamp(1rem, 1.6vw, 1.35rem) !important;
+    }
+
+    /* Flèche gauche : juste à gauche du contenu affiché à droite */
+    .home-page .hp-study-prev {
+        left: calc(
+            (100vw - var(--hp-study-panel-w)) / 2
+            + var(--hp-study-left-col)
+            + var(--hp-study-col-gap)
+            - 5.2rem
+        ) !important;
+        right: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* Flèche droite : reste à droite de la page */
+    .home-page .hp-study-next {
+        right: clamp(1rem, 4vw, 4rem) !important;
+        left: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+}
+
+/* === HERO image accueil : voir plus en bas, couper plus à droite === */
+
+.home-page .hp-hero-visual {
+    width: 100%;
+    max-width: none;
+    overflow: hidden;
+
+    /* même largeur, mais cadre un peu plus haut */
+    aspect-ratio: 16 / 7.8;
+}
+
+.home-page .hp-hero-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* 1re valeur = horizontal / 2e = vertical */
+    /* plus à gauche, un peu plus bas */
+    object-position: 20% 80%;
+}
+
+/* === ACCUEIL — logo FAAB + texte intro entre logo et image Courbevoie === */
+
+@media (min-width: 901px) {
+    .home-page .hp-hero-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0 !important;
+    }
+
+    /* 1 — Image LOGO FAAB - Copie : on la remonte */
+    .home-page .hp-hero-logo {
+        order: 1;
+        margin-top: -1.2rem !important;
+        padding-top: 1.2rem !important;
+        padding-bottom: 0.4rem !important;
+    }
+
+    /* 2 — Texte Agence éco-responsable placé entre logo et image */
+.home-page .hp-hero-intro {
+    order: 2;
+    margin-top: 0.4rem !important;
+    margin-bottom: 2.8rem !important;
+    max-width: min(64rem, 92vw);
+    text-align: center;
+    z-index: 2;
+}
+
+    /* 3 — Image COURBEVOIE en dessous */
+    .home-page .hp-hero-visual {
+        order: 3;
+        margin-top: 0 !important;
+    }
+
+    .home-page .hp-hero-intro .hp-intro-highlight {
+    font-size: 1.18em !important;
+}
+}
+/* === RÉALISATIONS — filtres style navbar alignés au logo === */
+
+.realisations-page .realisations-filters-section {
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0 2rem !important;
+}
+
+.realisations-page .realisations-filters-container {
+    width: min(1320px, calc(100vw - 6cm)) !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.realisations-page .realisations-filters {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: (1.2rem, 3vw, 3rem) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Style identique à la navbar */
+.realisations-page .filter-btn {
+    position: relative;
+    padding: 0.35rem 0 !important;
+    margin: 0 !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    font-family: 'Manrope', 'Lato', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 1.4px !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+
+    color: var(--text-color) !important;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Hover + actif comme navbar */
+.realisations-page .filter-btn:hover,
+.realisations-page .filter-btn.active {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+}
+
+/* Supprime l'effet bouton/pastille de l'ancien actif */
+.realisations-page .filter-btn.active {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .realisations-page .realisations-filters-container {
+        width: calc(100vw - 2rem) !important;
+    }
+
+    .realisations-page .realisations-filters {
+        flex-wrap: wrap !important;
+        gap: 1rem 1.5rem !important;
+    }
+
+    .realisations-page .filter-btn {
+        font-size: 0.85rem !important;
+        letter-spacing: 1.8px !important;
+    }
+}
+
+/* === PAGE AGENCE — réduire anne_julien.JPG et aligner le bas avec le texte === */
+
+@media (min-width: 701px) {
+    body.agence-page .agence-intro-grid {
+        align-items: end !important;
+    }
+
+    body.agence-page .agence-intro-image {
+        width: min(320px, 100%) !important;
+        max-width: 320px !important;
+        justify-self: end !important;
+        align-self: end !important;
+    }
+
+    body.agence-page .agence-intro-image img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+}
+
+
+.home-page .hp-eco-images {
+    width: min(360px, 100%) !important;
+}
+
+.home-page .hp-eco-image {
+    width: min(280px, 100%) !important;
+    max-width: 280px !important;
+}
+
+.home-page .hp-eco-image img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* === CONTACT — cartographies en carrés comme les cartes réalisations === */
+
+/* === CONTACT — cartographies carrées + décalées vers la droite === */
+
+.contact-page .contact-elegant .contact-box {
+    overflow: visible !important;
+}
+
+.contact-page .contact-elegant .contact-box .contact-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    gap: 1.2rem !important;
+    padding-left: 0 !important;
+    transform: none !important;
+}
+
+/* === CONTACT — cartos carrées décalées + arrondi visible === */
+
+.contact-page .contact-elegant .contact-box .contact-intro img {
+    width: 350px !important;
+    height: 350px !important;
+    max-width: 350px !important;
+    max-height: 300px !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    display: block !important;
+
+    /* Décalage validé */
+    position: relative !important;
+    left: 10rem !important;
+
+    /* Arrondi type cartes réalisations */
+    border-radius: 22px !important;
+    overflow: hidden !important;
+
+}

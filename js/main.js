@@ -154,45 +154,35 @@ if (prefersReducedMotion) {
         });
     }
 
-    var studyTitle = document.getElementById('hp-study-title');
+        var studyTitle = document.getElementById('hp-study-title');
     var studyContent = document.getElementById('hp-study-content');
     var studyPrev = document.getElementById('hp-study-prev');
     var studyNext = document.getElementById('hp-study-next');
-    var studyBack = document.getElementById('hp-study-back');
 
     if (studyTitle && studyContent && studyNext && studyPrev) {
         var savoirFaireItems = [
             {
-                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">N</span>OS MISSIONS</span>",
-                isIntro: true,
-                paragraphs: [
-                    "<div class=\"hp-study-intro-list\">" +
-                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"1\">> <span class=\"hp-study-intro-title\">ETUDES DE FAISABILITE</span></a><br>" +
-                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"2\">> <span class=\"hp-study-intro-title\">ETUDE ARCHITECTURALE ET URBAINE</span></a><br>" +
-                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"3\">> <span class=\"hp-study-intro-title\">EXECUTION</span></a><br>" +
-                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"4\">> <span class=\"hp-study-intro-title\">ASSISTANCE A MAITRISE D'OUVRAGE</span></a><br>" +
-                    "<a href=\"#\" class=\"hp-study-intro-link\" data-index=\"5\">> <span class=\"hp-study-intro-title\">AUDITS & EXPERTISE</span></a>" +
-                    "</div>"
-                ]
-            },
-            {
+                menuTitle: "ETUDES DE FAISABILITE",
                 titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">É</span>tude de faisabilité</span>",
                 paragraphs: [
                     "L'étude de faisabilité vérifie de façon réglementaire, technique et financière l'ensemble des possibilités constructives que permet l'assiette foncière déterminée pour le projet. L'ensemble de ces analyses permettront à FAAB Architecte de poser les intentions urbaines et architecturales au regard du contexte et de l'environnement du site, ainsi que de réaliser les premières esquisses de projet.",
                     "Cette phase est la base de tout type de projets. Elle constituera la première étape avant la conception de votre projet.",
                     "Notre objectif principal est le respect de votre enveloppe financière ainsi que l'anticipation de l'ensemble des contraintes éventuelles.",
-                    "FAAB Architecte vous accompagne dans l'intégralité de vos projets de construction (neuve), de transformation, rénovation ou de réhabilitation, de l'idée à la réalisation."
+                    "FAAB Architecte vous accompagne dans l'intégralité de vos projets de construction neuve, de transformation, rénovation ou de réhabilitation, de l'idée à la réalisation."
                 ]
             },
             {
+                menuTitle: "ETUDE ARCHITECTURALE ET URBAINE",
                 titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">É</span>tude architecturale et urbaine</span>",
                 paragraphs: [
                     "Les études de projet sont les étapes clés de la conception où FAAB Architecte transforme l'étude de faisabilité en un véritable projet, créatif, pérenne, réaliste et économiquement viable.",
-                    "La conception détermine les fondements et l'orientation du projet, c'est-à-dire le parti-pris architectural, urbain et environnemental inhérent à la fonctionnalité et à l'usage, la réponse aux besoins des usagers, l'esthétique du bâtiment ainsi que sa méthode constructive, l'orchestration de la lumière ainsi que de la spatialité. La définition du projet se précise à chaque stade, afin de le rendre cohérent, adapté, élégant et performant.",
+                    "La conception détermine les fondements et l'orientation du projet, c'est-à-dire le parti-pris architectural, urbain et environnemental inhérent à la fonctionnalité et à l'usage, la réponse aux besoins des usagers, l'esthétique du bâtiment ainsi que sa méthode constructive, l'orchestration de la lumière ainsi que de la spatialité.",
+                    "La définition du projet se précise à chaque stade, afin de le rendre cohérent, adapté, élégant et performant.",
                     "FAAB Architecte produit l'ensemble des plans et pièces permettant notamment la constitution de dossiers rigoureux de demande d'autorisations administratives à l'instar des permis de construire ou d'aménager."
                 ]
             },
             {
+                menuTitle: "EXECUTION",
                 titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">E</span>xécution</span>",
                 paragraphs: [
                     "La phase d'exécution correspond à la mise en œuvre du projet sur le chantier. Elle consiste à traduire les plans validés en réalisation effective, dans le respect des délais, du budget, des contraintes notamment de site et des exigences de qualité.",
@@ -201,6 +191,7 @@ if (prefersReducedMotion) {
                 ]
             },
             {
+                menuTitle: "ASSISTANCE A MAITRISE D'OUVRAGE",
                 titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">A</span>ssistance à maîtrise d'ouvrage</span>",
                 paragraphs: [
                     "FAAB Architecte propose une mission d'accompagnement stratégique global destinée à définir les besoins et usages, orienter la stratégie, clarifier les enjeux, piloter et budgétiser son projet.",
@@ -211,9 +202,10 @@ if (prefersReducedMotion) {
                 ]
             },
             {
-                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">A</span>UDITS & EXPERTISE</span>",
+                menuTitle: "AUDITS & EXPERTISE",
+                titleHtml: "<span class=\"highlight-yellow-dynamic\"><span class=\"hp-title-initial\">A</span>udits & expertise</span>",
                 paragraphs: [
-                    "FAAB Architecte intervient en qualité d'expert pour la réalisation de diagnostics pluri ou monodisciplinaires (programmatique, spatial, bioclimatique, technique et constructif).",
+                    "FAAB Architecte intervient en qualité d'expert pour la réalisation de diagnostics pluri ou monodisciplinaires : programmatique, spatial, bioclimatique, technique et constructif.",
                     "Notre démarche vise à analyser les problématiques que vous rencontrez notamment avec votre bien, ou en tant que tiers, afin de vous prodiguer les conseils et apports nécessaires à la résorption de vos questionnements ou événements nuisibles."
                 ]
             }
@@ -221,18 +213,50 @@ if (prefersReducedMotion) {
 
         var studyIndex = 0;
         var isAnimating = false;
+        var studyPanel = studyTitle.closest('.hp-study-panel');
+        var studyGrid = studyTitle.closest('.hp-study-grid');
+
+        function buildContentHtml(item) {
+            return item.paragraphs.map(function (paragraph) {
+                return '<p>' + paragraph + '</p>';
+            }).join('');
+        }
+
+        if (studyPanel) {
+            studyPanel.innerHTML =
+                '<div class="hp-study-left">' +
+                    '<h2 class="hp-study-title" id="hp-study-title">' +
+                        '<span class="highlight-yellow-dynamic"><span class="hp-title-initial">N</span>os missions</span>' +
+                    '</h2>' +
+                    '<nav class="hp-study-menu" aria-label="Nos missions">' +
+                        savoirFaireItems.map(function (item, index) {
+                            return '<button class="hp-study-mission-link" type="button" data-index="' + index + '">' +
+                                '<span class="hp-study-arrow">›</span>' +
+                                '<span class="hp-study-mission-label">' + item.menuTitle + '</span>' +
+                            '</button>';
+                        }).join('') +
+                    '</nav>' +
+                '</div>' +
+                '<div class="hp-study-right">' +
+                    '<h3 class="hp-study-current-title" id="hp-study-current-title"></h3>' +
+                    '<div class="hp-study-copy" id="hp-study-copy-wrap">' +
+                        '<div class="hp-study-copy-content" id="hp-study-content" aria-live="polite"></div>' +
+                    '</div>' +
+                '</div>';
+
+            studyTitle = document.getElementById('hp-study-title');
+            studyContent = document.getElementById('hp-study-content');
+        }
+
+        var studyCurrentTitle = document.getElementById('hp-study-current-title');
+        var studyMenuLinks = document.querySelectorAll('.hp-study-mission-link');
 
         function replayStudyTitleHighlight() {
             if (prefersReducedMotion) {
                 return;
             }
 
-            var highlightWords = studyTitle.querySelectorAll('.highlight-yellow-dynamic');
-            if (!highlightWords.length) {
-                return;
-            }
-
-            highlightWords.forEach(function (word) {
+            document.querySelectorAll('.hp-study .highlight-yellow-dynamic').forEach(function (word) {
                 word.classList.remove('is-revealed');
                 void word.offsetWidth;
                 requestAnimationFrame(function () {
@@ -241,104 +265,153 @@ if (prefersReducedMotion) {
             });
         }
 
+        function updateActiveMission(index) {
+            studyMenuLinks.forEach(function (link) {
+                var isActive = parseInt(link.getAttribute('data-index'), 10) === index;
+                link.classList.toggle('is-active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'true');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
         function renderStudyItem(index) {
             var item = savoirFaireItems[index];
-            if (!item) {
+
+            if (!item || !studyCurrentTitle || !studyContent) {
                 return;
             }
 
-            var nextTitle = studyTitle.cloneNode(false);
-            nextTitle.classList.remove('is-changing');
-            nextTitle.innerHTML = item.titleHtml;
-            studyTitle.replaceWith(nextTitle);
-            studyTitle = nextTitle;
-            
-            if (item.isIntro) {
-                studyContent.innerHTML = item.paragraphs[0];
-            } else {
-                studyContent.innerHTML = item.paragraphs.map(function (paragraph) {
-                    return '<p>' + paragraph + '</p>';
-                }).join('');
-            }
-            
+            studyCurrentTitle.innerHTML = item.titleHtml;
+            studyContent.innerHTML = buildContentHtml(item);
+            updateActiveMission(index);
+
             if (studyPrev && studyNext) {
-                var showNavigation = index > 0;
-                studyPrev.style.display = showNavigation ? 'inline-flex' : 'none';
-                studyNext.style.display = showNavigation ? 'inline-flex' : 'none';
+                studyPrev.style.display = 'inline-flex';
+                studyNext.style.display = 'inline-flex';
             }
-            
+
             replayStudyTitleHighlight();
         }
 
-        function goToStudyItemWithStep(step) {
-            if (isAnimating) {
+        function setFixedBandHeight() {
+            if (!studyGrid || !studyPanel || !studyCurrentTitle || !studyContent) {
                 return;
             }
 
-            var missionCount = savoirFaireItems.length - 1;
-            var nextIndex;
+            var originalTitle = studyCurrentTitle.innerHTML;
+            var originalContent = studyContent.innerHTML;
+            var originalVisibility = studyPanel.style.visibility;
+            var originalTransition = studyPanel.style.transition;
 
-            if (studyIndex === 0) {
-                nextIndex = step > 0 ? 1 : missionCount;
-            } else {
-                nextIndex = ((studyIndex - 1 + step + missionCount) % missionCount) + 1;
+            studyGrid.style.setProperty('--hp-study-band-height', 'auto');
+            studyPanel.style.visibility = 'hidden';
+            studyPanel.style.transition = 'none';
+
+            var maxPanelHeight = 0;
+
+            savoirFaireItems.forEach(function (item) {
+                studyCurrentTitle.innerHTML = item.titleHtml;
+                studyContent.innerHTML = buildContentHtml(item);
+                maxPanelHeight = Math.max(maxPanelHeight, studyPanel.scrollHeight);
+            });
+
+            studyCurrentTitle.innerHTML = originalTitle;
+            studyContent.innerHTML = originalContent;
+            studyPanel.style.visibility = originalVisibility;
+            studyPanel.style.transition = originalTransition;
+
+            var gridStyles = window.getComputedStyle(studyGrid);
+            var paddingTop = parseFloat(gridStyles.paddingTop) || 0;
+            var paddingBottom = parseFloat(gridStyles.paddingBottom) || 0;
+            var safeHeight = Math.ceil(maxPanelHeight + paddingTop + paddingBottom + 8);
+
+            studyGrid.style.setProperty('--hp-study-band-height', safeHeight + 'px');
+            replayStudyTitleHighlight();
+        }
+
+        function goToStudyItem(targetIndex) {
+            if (isAnimating || targetIndex === studyIndex) {
+                return;
+            }
+
+            if (targetIndex < 0) {
+                targetIndex = savoirFaireItems.length - 1;
+            }
+
+            if (targetIndex >= savoirFaireItems.length) {
+                targetIndex = 0;
             }
 
             if (prefersReducedMotion) {
-                studyIndex = nextIndex;
+                studyIndex = targetIndex;
                 renderStudyItem(studyIndex);
                 return;
             }
 
             isAnimating = true;
-            studyTitle.classList.add('is-changing');
+
+            if (studyCurrentTitle) {
+                studyCurrentTitle.classList.add('is-changing');
+            }
+
             studyContent.classList.add('is-changing');
 
             setTimeout(function () {
-                studyIndex = nextIndex;
+                studyIndex = targetIndex;
                 renderStudyItem(studyIndex);
-                studyTitle.classList.remove('is-changing');
+
+                if (studyCurrentTitle) {
+                    studyCurrentTitle.classList.remove('is-changing');
+                }
+
                 studyContent.classList.remove('is-changing');
                 isAnimating = false;
             }, 180);
         }
 
-        replayStudyTitleHighlight();
-        renderStudyItem(0);
-        studyPrev.addEventListener('click', function () {
-            goToStudyItemWithStep(-1);
-        });
-        studyNext.addEventListener('click', function () {
-            goToStudyItemWithStep(1);
-        });
-
-        // Handle intro links with event delegation
-        studyContent.addEventListener('click', function (e) {
-            if (e.target.closest('.hp-study-intro-link')) {
-                var link = e.target.closest('.hp-study-intro-link');
-                e.preventDefault();
+        studyMenuLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
                 var targetIndex = parseInt(link.getAttribute('data-index'), 10);
-                if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex < savoirFaireItems.length) {
-                    if (prefersReducedMotion) {
-                        studyIndex = targetIndex;
-                        renderStudyItem(studyIndex);
-                    } else {
-                        isAnimating = true;
-                        studyTitle.classList.add('is-changing');
-                        studyContent.classList.add('is-changing');
 
-                        setTimeout(function () {
-                            studyIndex = targetIndex;
-                            renderStudyItem(studyIndex);
-                            studyTitle.classList.remove('is-changing');
-                            studyContent.classList.remove('is-changing');
-                            isAnimating = false;
-                        }, 180);
-                    }
+                if (!isNaN(targetIndex)) {
+                    goToStudyItem(targetIndex);
                 }
-            }
+            });
         });
 
+        studyPrev.addEventListener('click', function () {
+            goToStudyItem(studyIndex - 1);
+        });
+
+        studyNext.addEventListener('click', function () {
+            goToStudyItem(studyIndex + 1);
+        });
+
+        renderStudyItem(0);
+
+        requestAnimationFrame(function () {
+            setFixedBandHeight();
+        });
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function () {
+                setFixedBandHeight();
+            });
+        }
+
+        var studyResizeTimer;
+
+        window.addEventListener('resize', function () {
+            clearTimeout(studyResizeTimer);
+
+            studyResizeTimer = setTimeout(function () {
+                setFixedBandHeight();
+            }, 160);
+        });
     }
 
     // ========== REALISATIONS PAGE LOGIC ==========
